@@ -22,7 +22,7 @@
         android:background="@color/gray_900"
         app:itemIconTint="@color/selector_bottom_navi"
         app:itemRippleColor="@color/green_500"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/menu_bottom_navi"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottom_navi" />
 </androidx.constraintlayout.widget.ConstraintLayout>

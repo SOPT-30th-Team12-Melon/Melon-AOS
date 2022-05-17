@@ -2,4 +2,11 @@
     <string name="app_name">JointSeminarMelon</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Navigation -->
+    <string name="tab_home">홈</string>
+    <string name="tab_chart">차트</string>
+    <string name="tab_live">라이브</string>
+    <string name="tab_search">검색</string>
+    <string name="tab_storage">저장소</string>
 </resources>
