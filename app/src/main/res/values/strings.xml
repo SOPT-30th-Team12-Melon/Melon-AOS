@@ -3,10 +3,22 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Global -->
+    <string name="num_of_people">%d명</string>
+    <string name="format_time">%d시간 전</string>
+    <string name="format_comment">댓글 %d</string>
+
     <!-- Navigation -->
     <string name="tab_home">홈</string>
     <string name="tab_chart">차트</string>
     <string name="tab_live">라이브</string>
     <string name="tab_search">검색</string>
     <string name="tab_storage">저장소</string>
+
+    <!-- Album -->
+    <string name="album_title">TITLE</string>
+    <string name="album_select_all">전체선택</string>
+    <string name="album_play_all">전체재생</string>
+    <string name="album_introduction">앨범 소개</string>
+    <string name="album_view_all">전체보기</string>
 </resources>

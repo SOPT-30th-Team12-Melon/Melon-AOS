@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="org.sopt.jointseminar.melon.R" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.AlbumFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                style="@style/Widget.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_more"
+                style="@style/Widget.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:src="@drawable/ic_more_big"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="155dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="20dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="20dp" />
+
+                <ImageView
+                    android:id="@+id/iv_album"
+                    android:layout_width="178dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/img_albumcover"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_album_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:fontFamily="@font/pretendard_sb"
+                    android:text="마음을 담아줘"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/iv_album" />
+
+                <TextView
+                    android:id="@+id/tv_release_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="2022.05.12"
+                    android:textColor="@color/gray_300"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_album_title" />
+
+                <TextView
+                    android:id="@+id/tv_flac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="FLAC"
+                    android:textColor="@color/gray_300"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_release_date"
+                    app:layout_constraintTop_toTopOf="@id/tv_release_date" />
+
+                <LinearLayout
+                    android:id="@+id/layout_star_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_flac"
+                    app:layout_constraintStart_toEndOf="@id/tv_flac"
+                    app:layout_constraintTop_toTopOf="@id/tv_flac">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_full_star" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_full_star" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_full_star" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_half_star" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_empty_star" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="5.0"
+                    android:textColor="@color/green_500"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_star_score"
+                    app:layout_constraintStart_toEndOf="@id/layout_star_score"
+                    app:layout_constraintTop_toTopOf="@id/layout_star_score" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_dot_score"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="4dp"
+                    android:background="#C4C4C4"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_score"
+                    app:layout_constraintStart_toEndOf="@id/tv_score"
+                    app:layout_constraintTop_toBottomOf="@id/tv_release_date"
+                    app:layout_constraintTop_toTopOf="@id/tv_score"
+                    app:shapeAppearanceOverlay="@style/Widget.CircleImageView" />
+
+                <TextView
+                    android:id="@+id/tv_num_of_people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="@{String.format(context.getString(R.string.num_of_people), 2)}"
+                    android:textColor="@color/gray_500"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@id/iv_dot_score"
+                    app:layout_constraintTop_toTopOf="@id/tv_score"
+                    tools:text="2명" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_artist_img"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#FFFDC8"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_release_date"
+                    app:shapeAppearanceOverlay="@style/Widget.CircleImageView" />
+
+                <TextView
+                    android:id="@+id/tv_artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="타코앤제이형"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_artist_img"
+                    app:layout_constraintStart_toEndOf="@id/iv_artist_img"
+                    app:layout_constraintTop_toTopOf="@id/iv_artist_img" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:src="@drawable/ic_info"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_num_of_people"
+                    app:layout_constraintStart_toEndOf="@id/tv_num_of_people"
+                    app:layout_constraintTop_toTopOf="@id/tv_num_of_people" />
+
+                <Button
+                    android:id="@+id/btn_heart"
+                    style="@style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:drawableStart="@drawable/ic_heart"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="20"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/iv_artist_img" />
+
+                <Button
+                    android:id="@+id/btn_comment"
+                    style="@style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:drawableStart="@drawable/ic_comment"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@id/btn_heart"
+                    app:layout_constraintTop_toTopOf="@id/btn_heart" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_shuffle"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="24dp"
+                    app:cardBackgroundColor="@color/gray_800"
+                    app:cardCornerRadius="5dp"
+                    app:layout_constraintEnd_toStartOf="@id/cv_play_all"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/btn_heart">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:id="@+id/iv_shuffle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_shuffle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:fontFamily="@font/pretendard_r"
+                            android:text="셔플재생"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toEndOf="@id/iv_shuffle"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_play_all"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="6dp"
+                    app:cardBackgroundColor="@color/gray_800"
+                    app:cardCornerRadius="5dp"
+                    app:layout_constraintEnd_toEndOf="@id/gl_end"
+                    app:layout_constraintStart_toEndOf="@id/cv_shuffle"
+                    app:layout_constraintTop_toTopOf="@id/cv_shuffle">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:id="@+id/iv_play_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_play"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:fontFamily="@font/pretendard_r"
+                            android:text="@string/album_play_all"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toEndOf="@id/iv_play_all"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/btn_select_all"
+                    style="@style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="@string/album_select_all"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/cv_shuffle" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="1곡"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@id/iv_dot_music"
+                    app:layout_constraintTop_toTopOf="@id/tv_minute" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_dot_music"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="#C4C4C4"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_minute"
+                    app:layout_constraintEnd_toStartOf="@id/tv_minute"
+                    app:layout_constraintTop_toTopOf="@id/tv_minute"
+                    app:shapeAppearanceOverlay="@style/Widget.CircleImageView" />
+
+                <TextView
+                    android:id="@+id/tv_minute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="3분"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_select_all"
+                    app:layout_constraintEnd_toEndOf="@id/gl_end"
+                    app:layout_constraintTop_toTopOf="@id/btn_select_all" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_music_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/btn_select_all"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_music_horizontal" />
+
+                <!-- 앨범 소개 -->
+                <TextView
+                    android:id="@+id/tv_album_introduction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/pretendard_sb"
+                    android:text="@string/album_introduction"
+                    android:textColor="@color/gray_300"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/rv_music_list" />
+
+                <TextView
+                    android:id="@+id/tv_type_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="유형"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_album_introduction" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="싱글"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/tv_release_date_content"
+                    app:layout_constraintTop_toTopOf="@id/tv_type_label" />
+
+                <TextView
+                    android:id="@+id/tv_genre_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="장르"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_type_label" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="랩/힙합/인디음악"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/tv_release_date_content"
+                    app:layout_constraintTop_toTopOf="@id/tv_genre_label" />
+
+                <TextView
+                    android:id="@+id/tv_release_date_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="발매일"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_genre_label" />
+
+                <TextView
+                    android:id="@+id/tv_release_date_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="2022.05.12"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_release_date_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_release_date_label" />
+
+                <TextView
+                    android:id="@+id/tv_publisher_date_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="발매사"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_release_date_label" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="워너뮤직"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_publisher_date_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_publisher_date_label" />
+
+                <TextView
+                    android:id="@+id/tv_agency_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="기획사"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_publisher_date_label" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:text="eMPT$ TAPE RECORD"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_agency_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_agency_label" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="@string/album_view_all"
+                    android:textColor="@color/gray_500"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_album_introduction"
+                    app:layout_constraintEnd_toEndOf="@id/gl_end"
+                    app:layout_constraintTop_toTopOf="@id/tv_album_introduction" />
+
+                <TextView
+                    android:id="@+id/tv_album_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/pretendard_l"
+                    android:lineSpacingExtra="5dp"
+                    android:text="행복했던 기억, 그때 그 마음들을 이 노래에 담아주세요.\n힘들다 느껴질 때 이 노래가 위로가 될 수 있게.\n[cREDIT]Lyrics by 타코앤제이형Composed by\n타코앤제이형, 조영현Arranged by 타코앤제이형Vocal"
+                    android:textColor="@color/gray_300"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_agency_label" />
+
+                <!-- 댓글 -->
+                <TextView
+                    android:id="@+id/tv_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/pretendard_sb"
+                    android:text="@{String.format(context.getString(R.string.format_comment), 3)}"
+                    android:textColor="@color/gray_300"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_album_description"
+                    tools:text="댓글 3" />
+
+                <ImageButton
+                    style="@style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_pencil"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_comment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_comment" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_comment_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_comment"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_comment" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
