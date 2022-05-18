@@ -70,7 +70,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/tv_line"
+        android:id="@+id/tv_line_top"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/gray_800"
@@ -81,19 +81,23 @@
     <EditText
         android:id="@+id/et_review"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:hint="@string/writing_hint"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="33dp"
+        android:background="@null"
         android:fontFamily="@font/pretendard_r"
+        android:gravity="top|left"
+        android:hint="@string/writing_hint"
         android:includeFontPadding="false"
-        android:textSize="15sp"
+        android:inputType="textMultiLine"
         android:textColor="@color/white"
         android:textColorHint="@color/gray_500"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="33dp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_text_count"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_line" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_line_top" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_bottom"
@@ -155,14 +159,26 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:id="@+id/tv_line_bottom"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/gray_800"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="@id/et_review"
+        app:layout_constraintEnd_toEndOf="@id/tv_text_count"
+        app:layout_constraintBottom_toTopOf="@id/layout_bottom"
+        />
+
+    <TextView
         android:id="@+id/tv_text_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="19dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="14dp"
         android:text="1/1000"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/layout_bottom"
+        app:layout_goneMarginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_line_bottom"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
