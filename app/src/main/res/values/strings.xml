@@ -9,4 +9,11 @@
     <string name="tab_live">라이브</string>
     <string name="tab_search">검색</string>
     <string name="tab_storage">저장소</string>
+
+    <!--general-->
+    <string name="registration">등록</string>
+
+    <!--글쓰기-->
+    <string name="writing_title">글쓰기</string>
+    <string name="writing_hint">24시간 이내 스트리밍 감상한 곡에 한하여 작성하신 댓글에 감상 여부가 표기 됩니다.\n감상 후 24시간이 지난 경우, 또는 내부 서비스 환경에 따라 감상 여부의 표기가 안될 수 있습니다.</string>
 </resources>
