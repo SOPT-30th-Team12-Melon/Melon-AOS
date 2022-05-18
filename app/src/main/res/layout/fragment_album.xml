@@ -550,6 +550,7 @@
                     tools:text="댓글 3" />
 
                 <ImageButton
+                    android:id="@+id/btn_posting"
                     style="@style/Widget.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

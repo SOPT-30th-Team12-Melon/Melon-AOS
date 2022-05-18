@@ -31,6 +31,14 @@ class AlbumFragment : Fragment() {
                 CommentInfo("타코앤와사비")))
             binding.rvCommentList.adapter = it
         }
+
+        binding.btnBack.setOnClickListener {
+            // TODO 클릭 시 이전화면으로 복귀
+        }
+
+        binding.btnPosting.setOnClickListener {
+            // TODO 클릭 시 글쓰기 화면으로 이동
+        }
     }
 
     override fun onDestroyView() {
