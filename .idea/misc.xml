@@ -11,9 +11,28 @@
         <entry key="..\:/Users/brian/AndroidStudioProjects/JointSeminarMelon/app/src/main/res/layout/fragment_storage.xml" value="0.1" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/JointSeminarMelon/app/src/main/res/menu/menu_bottom_navi.xml" value="0.25364583333333335" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_circle.xml" value="0.187" />
+        <entry key="app/src/main/res/drawable/ic_group_33683.xml" value="0.263" />
+        <entry key="app/src/main/res/drawable/ic_home_ic_buy.xml" value="0.1715" />
+        <entry key="app/src/main/res/drawable/ic_home_ic_melon.xml" value="0.187" />
+        <entry key="app/src/main/res/drawable/ic_home_ic_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_icon_chart.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_icon_home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_icon_live.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_icon_search.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_icon_storage.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_mask_group.xml" value="0.1715" />
+        <entry key="app/src/main/res/drawable/ic_polygon_10.xml" value="0.1715" />
+        <entry key="app/src/main/res/drawable/ic_rectangle_16.xml" value="0.1715" />
+        <entry key="app/src/main/res/drawable/ic_track.xml" value="0.263" />
+        <entry key="app/src/main/res/drawable/rectangle_radius_15.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/rectangle_radius_6.xml" value="0.164" />
+        <entry key="app/src/main/res/layout-v31/item_recommended_music_sample_list.xml" value="0.14336372847011145" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3287078857421876" />
         <entry key="app/src/main/res/layout/fragment_storage.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_recommended_music_sample_list.xml" value="0.5916473317865429" />
         <entry key="app/src/main/res/menu/menu_bottom_navi.xml" value="0.1" />
       </map>
     </option>
