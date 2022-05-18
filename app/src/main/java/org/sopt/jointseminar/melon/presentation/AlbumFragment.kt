@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import org.sopt.jointseminar.melon.databinding.FragmentAlbumBinding
+import org.sopt.jointseminar.melon.model.CommentInfo
+import org.sopt.jointseminar.melon.presentation.album.adapter.AlbumCommentListAdapter
 
 class AlbumFragment : Fragment() {
     private var _binding: FragmentAlbumBinding? = null
@@ -16,7 +18,19 @@ class AlbumFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentAlbumBinding.inflate(inflater, container, false)
+
+        initView()
+
         return binding.root
+    }
+
+    private fun initView() {
+        AlbumCommentListAdapter().also {
+            it.submitList(listOf(CommentInfo("노래에 맘 터집니다"),
+                CommentInfo("명반"),
+                CommentInfo("타코앤와사비")))
+            binding.rvCommentList.adapter = it
+        }
     }
 
     override fun onDestroyView() {
