@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JointSeminarMelon">
         <activity
-            android:name=".presentation.PostingActivity"
+            android:name=".presentation.posting.PostingActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>

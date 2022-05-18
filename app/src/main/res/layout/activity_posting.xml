@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_900"
-    tools:context=".presentation.PostingActivity">
+    tools:context=".presentation.posting.PostingActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_top"

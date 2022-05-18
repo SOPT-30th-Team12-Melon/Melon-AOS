@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.presentation
+package org.sopt.jointseminar.melon.presentation.posting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
