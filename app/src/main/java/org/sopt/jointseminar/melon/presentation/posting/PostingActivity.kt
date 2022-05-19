@@ -15,13 +15,21 @@ class PostingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPostingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         initViewModel()
+        initView()
         observeReview()
     }
 
     private fun initViewModel() {
         binding.viewModel = postingViewModel
         binding.lifecycleOwner = this
+    }
+
+    private fun initView() {
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun observeReview() {

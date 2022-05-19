@@ -1,5 +1,6 @@
 package org.sopt.jointseminar.melon.presentation.album
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,16 +34,17 @@ class AlbumFragment : Fragment() {
         binding.rvCommentList.apply {
             adapter = albumCommentAdapter
             val dividerItemDecoration =
-                DividerItemDecoration(binding.rvCommentList.context, LinearLayoutManager(requireContext()).orientation)
+                DividerItemDecoration(binding.rvCommentList.context,
+                    LinearLayoutManager(requireContext()).orientation)
             addItemDecoration(dividerItemDecoration)
         }
 
         binding.btnBack.setOnClickListener {
-            // TODO 클릭 시 이전화면으로 복귀
+            parentFragmentManager.beginTransaction().remove(this).commit()
         }
 
         binding.btnPosting.setOnClickListener {
-            // TODO 클릭 시 글쓰기 화면으로 이동
+            startActivity(Intent(requireContext(), PostingActivity::class.java))
         }
     }
 
