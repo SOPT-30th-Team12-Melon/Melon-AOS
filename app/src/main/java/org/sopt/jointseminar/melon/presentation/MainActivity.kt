@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initBottomNavi() {
         supportFragmentManager.commit {
-            add<HomeFragment>(R.id.fcv_main)
+            replace<HomeFragment>(R.id.fcv_main)
         }
         binding.bnvMain.setOnItemSelectedListener {
             when (it.itemId) {
