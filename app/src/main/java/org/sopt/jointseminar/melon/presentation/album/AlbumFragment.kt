@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.presentation
+package org.sopt.jointseminar.melon.presentation.album
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import org.sopt.jointseminar.melon.databinding.FragmentAlbumBinding
 import org.sopt.jointseminar.melon.model.CommentInfo
-import org.sopt.jointseminar.melon.presentation.album.adapter.AlbumCommentListAdapter
 
 class AlbumFragment : Fragment() {
     private var _binding: FragmentAlbumBinding? = null

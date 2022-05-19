@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:background="@color/black"
         android:paddingVertical="12dp"
-        tools:context=".presentation.AlbumFragment">
+        tools:context=".presentation.album.AlbumFragment">
 
         <TextView
             android:id="@+id/tv_sequence_num"

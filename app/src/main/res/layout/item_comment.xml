@@ -16,8 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        tools:context=".presentation.AlbumFragment">
-        android:paddingVertical="8dp"
+        android:paddingVertical="8dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_start"

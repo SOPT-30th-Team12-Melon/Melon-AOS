@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.presentation.album.adapter
+package org.sopt.jointseminar.melon.presentation.album
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
