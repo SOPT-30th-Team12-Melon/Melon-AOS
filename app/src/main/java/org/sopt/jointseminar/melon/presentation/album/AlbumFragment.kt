@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import org.sopt.jointseminar.melon.databinding.FragmentAlbumBinding
-import org.sopt.jointseminar.melon.model.CommentInfo
 
 class AlbumFragment : Fragment() {
     private var _binding: FragmentAlbumBinding? = null
     private val binding get() = _binding!!
+    private val albumViewModel: AlbumViewModel by viewModels()
+    private val albumCommentAdapter = AlbumCommentListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,17 +21,13 @@ class AlbumFragment : Fragment() {
         _binding = FragmentAlbumBinding.inflate(inflater, container, false)
 
         initView()
+        observeComment()
 
         return binding.root
     }
 
     private fun initView() {
-        AlbumCommentListAdapter().also {
-            it.submitList(listOf(CommentInfo("노래에 맘 터집니다"),
-                CommentInfo("명반"),
-                CommentInfo("타코앤와사비")))
-            binding.rvCommentList.adapter = it
-        }
+        binding.rvCommentList.adapter = albumCommentAdapter
 
         binding.btnBack.setOnClickListener {
             // TODO 클릭 시 이전화면으로 복귀
@@ -37,6 +35,12 @@ class AlbumFragment : Fragment() {
 
         binding.btnPosting.setOnClickListener {
             // TODO 클릭 시 글쓰기 화면으로 이동
+        }
+    }
+
+    private fun observeComment() {
+        albumViewModel.commentList.observe(viewLifecycleOwner) {
+            albumCommentAdapter.submitList(it.toMutableList())
         }
     }
 
