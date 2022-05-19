@@ -84,8 +84,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/tv_favorite"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_favorite"
                     tools:itemCount="2"
                     tools:listitem="@layout/item_recommended_music_sample_list" />
 
@@ -121,6 +121,29 @@
                     app:layout_constraintStart_toStartOf="@id/iv_track"
                     app:layout_constraintTop_toBottomOf="@id/iv_track"
                     tools:text="최신음악" />
+
+                <TextView
+                    android:id="@+id/tv_entire"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_m"
+                    android:text="전체"
+                    android:layout_marginStart="7dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_recent_music"
+                    app:layout_constraintStart_toEndOf="@+id/tv_recent_music"
+                    android:textColor="@color/green_500"
+                    android:textSize="16sp" />
+                <ImageView
+                    android:id="@+id/iv_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    app:layout_constraintStart_toEndOf="@id/tv_entire"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_entire"
+                    android:layout_marginStart="9dp"
+                    />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

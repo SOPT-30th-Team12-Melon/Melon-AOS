@@ -1,6 +1,5 @@
 package org.sopt.jointseminar.melon.presentation
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -18,8 +17,7 @@ class HomeFavouriteAdapter(private val onFavouriteClick: () -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: ResponseHomeFavourite, onFavouriteCick: () -> Unit) {
             binding.favouriteData = data
-            Log.d("data.image", "${data.image}")
-            Glide.with(binding.root)
+            Glide.with(binding.ivMusic.context)
                 .load(data.image)
                 .into(binding.ivMusic)
             binding.root.setOnClickListener {

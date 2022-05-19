@@ -59,7 +59,6 @@
                 android:layout_marginTop="18dp"
                 android:background="@drawable/rectangle_radius_6"
                 android:scaleType="centerCrop"
-                android:src="@{favouriteData.image}"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
