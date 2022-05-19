@@ -56,7 +56,8 @@ class HomeFragment : Fragment() {
 
     private fun onFavouriteClick() {
         parentFragmentManager.commit {
-            replace<AlbumFragment>(R.id.fcv_main)
+            add(R.id.fcv_main, AlbumFragment())
+            addToBackStack(null)
         }
     }
 

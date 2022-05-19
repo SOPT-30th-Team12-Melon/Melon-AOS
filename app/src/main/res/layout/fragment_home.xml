@@ -8,7 +8,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
+    android:id="@+id/layout_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_900"
@@ -142,8 +142,6 @@
                     app:layout_constraintBottom_toBottomOf="@id/tv_entire"
                     android:layout_marginStart="9dp"
                     />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
