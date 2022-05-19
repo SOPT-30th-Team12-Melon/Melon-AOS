@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import androidx.fragment.app.replace
+import androidx.fragment.app.viewModels
 import org.sopt.jointseminar.melon.R
 import org.sopt.jointseminar.melon.databinding.FragmentHomeBinding
 import org.sopt.jointseminar.melon.presentation.album.AlbumFragment
@@ -17,13 +17,16 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding ?: error("초기화 안됨")
     var favouriteDataSet = mutableListOf<ResponseHomeFavourite>()
     private lateinit var homeFavouriteAdapter: HomeFavouriteAdapter
-
+    private val homeViewModel: HomeViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        _binding?.viewModel = homeViewModel
+        _binding?.lifecycleOwner = this@HomeFragment
+
         initFavouriteDataSet()
         initAdapter()
         return binding.root
