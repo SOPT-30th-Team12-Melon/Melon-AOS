@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import org.sopt.jointseminar.melon.databinding.FragmentAlbumBinding
+import org.sopt.jointseminar.melon.presentation.posting.PostingActivity
 
 class AlbumFragment : Fragment() {
     private var _binding: FragmentAlbumBinding? = null
@@ -27,7 +30,12 @@ class AlbumFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.rvCommentList.adapter = albumCommentAdapter
+        binding.rvCommentList.apply {
+            adapter = albumCommentAdapter
+            val dividerItemDecoration =
+                DividerItemDecoration(binding.rvCommentList.context, LinearLayoutManager(requireContext()).orientation)
+            addItemDecoration(dividerItemDecoration)
+        }
 
         binding.btnBack.setOnClickListener {
             // TODO 클릭 시 이전화면으로 복귀
