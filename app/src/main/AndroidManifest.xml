@@ -22,6 +22,7 @@
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true">
+
         </activity>
     </application>
 
