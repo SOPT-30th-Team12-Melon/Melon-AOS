@@ -80,14 +80,22 @@ class HomeFragment : Fragment() {
     }
 
     private fun initHomeFavoriteAdapter() {
-        homeFavouriteAdapter = HomeFavouriteAdapter()
-        binding.rvRepository.adapter =
-            homeFavouriteAdapter.apply { submitList(favouriteDataSet) }
+        homeFavouriteAdapter = HomeFavouriteAdapter().apply {
+            submitList(favouriteDataSet)
+        }
+        binding.rvRepository.apply {
+            adapter = homeFavouriteAdapter
+            addItemDecoration(HomeDecorationHorizontal())
+        }
     }
 
     private fun initRecentAdapter() {
-        homeRecentAdapter = HomeRecentListAdapter { onRecentClick() }
-        binding.rvRecentMusic.adapter = homeRecentAdapter.apply { submitList(recentDataSet) }
+        homeRecentAdapter =
+            HomeRecentListAdapter { onRecentClick() }.apply { submitList(recentDataSet) }
+        binding.rvRecentMusic.apply {
+            adapter = homeRecentAdapter
+            addItemDecoration(HomeDecorationHorizontal())
+        }
     }
 
     private fun onRecentClick() {

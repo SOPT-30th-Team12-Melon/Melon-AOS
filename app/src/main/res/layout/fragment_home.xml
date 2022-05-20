@@ -256,7 +256,7 @@
                     android:layout_marginTop="200dp"
                     android:layout_marginBottom="300dp"
                     android:fontFamily="@font/pretendard_sb"
-                    android:text="멜론트랜디  50"
+                    android:text="상황별 맞춤음악"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
