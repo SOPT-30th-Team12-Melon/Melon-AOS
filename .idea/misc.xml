@@ -17,10 +17,17 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/circle_orange.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/ic_circle.xml" value="0.187" />
+        <entry key="app/src/main/res/drawable/ic_full_star.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ic_group_33683.xml" value="0.263" />
+        <entry key="app/src/main/res/drawable/ic_heart.xml" value="0.117" />
+        <entry key="app/src/main/res/drawable/ic_home_50img_1.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ic_home_ic_buy.xml" value="0.1715" />
         <entry key="app/src/main/res/drawable/ic_home_ic_melon.xml" value="0.187" />
         <entry key="app/src/main/res/drawable/ic_home_ic_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_home_trendy_drive.xml" value="0.117" />
+        <entry key="app/src/main/res/drawable/ic_home_trendy_picnic.xml" value="0.117" />
+        <entry key="app/src/main/res/drawable/ic_home_trendy_senti.xml" value="0.117" />
+        <entry key="app/src/main/res/drawable/ic_home_trendy_weekend.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ic_icon_chart.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_icon_home.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_icon_live.xml" value="0.1" />
@@ -28,6 +35,8 @@
         <entry key="app/src/main/res/drawable/ic_icon_storage.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_mask_group.xml" value="0.1715" />
+        <entry key="app/src/main/res/drawable/ic_play.xml" value="0.117" />
+        <entry key="app/src/main/res/drawable/ic_play_big.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ic_polygon_10.xml" value="0.1715" />
         <entry key="app/src/main/res/drawable/ic_rectangle_16.xml" value="0.1715" />
         <entry key="app/src/main/res/drawable/ic_track.xml" value="0.263" />
@@ -37,11 +46,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_posting.xml" value="0.22592592592592592" />
         <entry key="app/src/main/res/layout/fragment_album.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_storage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_comment.xml" value="0.22592592592592592" />
         <entry key="app/src/main/res/layout/item_music_horizontal.xml" value="0.2234762979683973" />
-        <entry key="app/src/main/res/layout/item_recent_music_sample_list.xml" value="0.2692307692307692" />
+        <entry key="app/src/main/res/layout/item_recent_music_sample_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_recommended_music_sample_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_top_music.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_bottom_navi.xml" value="0.1" />

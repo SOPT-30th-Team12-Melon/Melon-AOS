@@ -251,17 +251,296 @@
                     bind:topMusicInfo="@{viewModel.topMusicList.get(2)}" />
 
                 <TextView
+                    android:id="@+id/tv_trendy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="200dp"
-                    android:layout_marginBottom="300dp"
+                    android:layout_marginTop="50dp"
                     android:fontFamily="@font/pretendard_sb"
-                    android:text="상황별 맞춤음악"
+                    android:text="멜론트랜디 50"
                     android:textColor="@color/white"
                     android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/ic_third_music"
                     app:layout_constraintTop_toBottomOf="@+id/ic_third_music" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_trendy_senti"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/gray_600"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_trendy"
+                    app:layout_constraintTop_toBottomOf="@id/tv_trendy">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_album_cover"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/rectangle_radius_6"
+                            android:clipToOutline="true"
+                            android:src="@drawable/ic_home_trendy_senti"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.61" />
+
+                        <ImageView
+                            android:id="@+id/iv_play"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="27dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_album_cover"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="@+id/iv_album_cover"
+                            app:layout_constraintStart_toStartOf="@+id/iv_album_cover"
+                            app:layout_constraintTop_toTopOf="@+id/iv_album_cover"
+                            app:layout_constraintWidth_percent="0.26"
+                            app:srcCompat="@drawable/ic_play_big" />
+
+                        <TextView
+                            android:id="@+id/tv_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:fontFamily="@font/pretendard_m"
+                            android:text="센치한"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_album_cover" />
+
+                        <TextView
+                            android:id="@+id/tv_hashtag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="11dp"
+                            android:text="#감성힙합 #알앤비"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_mood" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_trendy_drive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:background="@color/gray_600"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cv_trendy_senti">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_album_drive"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/rectangle_radius_6"
+                            android:clipToOutline="true"
+                            android:src="@drawable/ic_home_trendy_drive"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.61" />
+
+                        <ImageView
+                            android:id="@+id/iv_drive_play"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="27dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_album_drive"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="@+id/iv_album_drive"
+                            app:layout_constraintStart_toStartOf="@+id/iv_album_drive"
+                            app:layout_constraintTop_toTopOf="@+id/iv_album_drive"
+                            app:layout_constraintWidth_percent="0.26"
+                            app:srcCompat="@drawable/ic_play_big" />
+
+                        <TextView
+                            android:id="@+id/tv_drive_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:fontFamily="@font/pretendard_m"
+                            android:text="운전"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_album_drive" />
+
+                        <TextView
+                            android:id="@+id/tv_drive_hashtag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="11dp"
+                            android:text="#힙합 #락"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_drive_mood" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_trendy_weekend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="126dp"
+                    android:background="@color/gray_600"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cv_trendy_senti">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_album_weekend"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/rectangle_radius_6"
+                            android:clipToOutline="true"
+                            android:src="@drawable/ic_home_trendy_weekend"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.61" />
+
+                        <ImageView
+                            android:id="@+id/iv_weekend_play"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="27dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_album_weekend"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="@+id/iv_album_weekend"
+                            app:layout_constraintStart_toStartOf="@+id/iv_album_weekend"
+                            app:layout_constraintTop_toTopOf="@+id/iv_album_weekend"
+                            app:layout_constraintWidth_percent="0.26"
+                            app:srcCompat="@drawable/ic_play_big" />
+
+                        <TextView
+                            android:id="@+id/tv_weekend_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:fontFamily="@font/pretendard_m"
+                            android:text="주말"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_album_weekend" />
+
+                        <TextView
+                            android:id="@+id/tv_weekend_hashtag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="11dp"
+                            android:text="#신나는 #케이팝"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_weekend_mood" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_trendy_picnic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:background="@color/gray_600"
+                    app:cardCornerRadius="6dp"
+                    android:layout_marginTop="7dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cv_trendy_drive">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_album_picnic"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/rectangle_radius_6"
+                            android:clipToOutline="true"
+                            android:src="@drawable/ic_home_trendy_picnic"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.61" />
+
+                        <ImageView
+                            android:id="@+id/iv_picnic_play"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="27dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_album_picnic"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="@+id/iv_album_picnic"
+                            app:layout_constraintStart_toStartOf="@+id/iv_album_picnic"
+                            app:layout_constraintTop_toTopOf="@+id/iv_album_picnic"
+                            app:layout_constraintWidth_percent="0.26"
+                            app:srcCompat="@drawable/ic_play_big" />
+
+                        <TextView
+                            android:id="@+id/tv_picnic_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:fontFamily="@font/pretendard_m"
+                            android:text="피크닉"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_album_picnic" />
+
+                        <TextView
+                            android:id="@+id/tv_picnic_hashtag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="11dp"
+                            android:text="#봄 #햇빛"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_picnic_mood" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
