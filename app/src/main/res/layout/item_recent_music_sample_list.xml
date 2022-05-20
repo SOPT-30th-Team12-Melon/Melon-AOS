@@ -7,7 +7,7 @@
 
         <variable
             name="recentMusicData"
-            type="org.sopt.jointseminar.melon.presentation.ResponseRecentMusic" />
+            type="org.sopt.jointseminar.melon.data.posting.ResponseRecentMusic" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,13 +16,15 @@
 
         <ImageView
             android:id="@+id/iv_album"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:src="@drawable/img_albumcover"
+            android:src="@{recentMusicData.image}"
             app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_albumcover" />
 
         <ImageView
             android:id="@+id/iv_play"

@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="org.sopt.jointseminar.melon.presentation.HomeViewModel" />
+            type="org.sopt.jointseminar.melon.presentation.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,13 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_900"
-        tools:context=".presentation.HomeFragment">
+        tools:context=".presentation.home.HomeFragment">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="-347dp">
+            tools:layout_editor_absoluteX="-74dp"
+            tools:layout_editor_absoluteY="-127dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -112,11 +112,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="54dp"
                     android:fontFamily="@font/pretendard_sb"
+                    android:text="숨겨진 명곡 발굴 프로젝트 ‘트랙제로’"
                     android:textColor="@color/gray_300"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_favorite"
-                    app:layout_constraintTop_toBottomOf="@id/rv_repository"
-                    tools:text="숨겨진 명곡 발굴 프로젝트 ‘트랙제로’" />
+                    app:layout_constraintTop_toBottomOf="@id/rv_repository" />
 
                 <ImageView
                     android:id="@+id/iv_track"
@@ -133,17 +133,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="48dp"
                     android:fontFamily="@font/pretendard_sb"
+                    android:text="최신음악"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@id/iv_track"
-                    app:layout_constraintTop_toBottomOf="@id/iv_track"
-                    tools:text="최신음악" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_track" />
 
                 <TextView
                     android:id="@+id/tv_entire"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
+                    android:layout_marginBottom="4dp"
                     android:fontFamily="@font/pretendard_m"
                     android:text="전체"
                     android:textColor="@color/green_500"
@@ -185,11 +186,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:text="전체보기"
                     android:textColor="@color/gray_500"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/foreign"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:text="전체보기" />
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_recent_music"
@@ -255,12 +256,12 @@
                     android:layout_marginTop="200dp"
                     android:layout_marginBottom="300dp"
                     android:fontFamily="@font/pretendard_sb"
+                    android:text="멜론트랜디  50"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/ic_third_music"
-                    app:layout_constraintTop_toBottomOf="@+id/ic_third_music"
-                    android:text="멜론트랜디  50" />
+                    app:layout_constraintTop_toBottomOf="@+id/ic_third_music" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

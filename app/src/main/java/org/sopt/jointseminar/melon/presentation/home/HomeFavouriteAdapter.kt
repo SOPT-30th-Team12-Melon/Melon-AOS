@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.presentation
+package org.sopt.jointseminar.melon.presentation.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,23 +6,21 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import org.sopt.jointseminar.melon.data.posting.ResponseHomeFavourite
 import org.sopt.jointseminar.melon.databinding.ItemRecommendedMusicSampleListBinding
 
-class HomeFavouriteAdapter(private val onFavouriteClick: () -> Unit) :
+class HomeFavouriteAdapter() :
     ListAdapter<ResponseHomeFavourite, HomeFavouriteAdapter.HomeFavouriteViewHolder>(
         FavouriteComparator
     ) {
 
     class HomeFavouriteViewHolder(private val binding: ItemRecommendedMusicSampleListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: ResponseHomeFavourite, onFavouriteCick: () -> Unit) {
+        fun onBind(data: ResponseHomeFavourite) {
             binding.favouriteData = data
             Glide.with(binding.ivMusic.context)
                 .load(data.image)
                 .into(binding.ivMusic)
-            binding.root.setOnClickListener {
-                onFavouriteCick()
-            }
         }
     }
 
@@ -36,7 +34,7 @@ class HomeFavouriteAdapter(private val onFavouriteClick: () -> Unit) :
     }
 
     override fun onBindViewHolder(holder: HomeFavouriteViewHolder, position: Int) {
-        return holder.onBind(getItem(position), onFavouriteClick)
+        return holder.onBind(getItem(position))
     }
 
     companion object {

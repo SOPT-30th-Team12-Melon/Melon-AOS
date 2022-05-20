@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.presentation
+package org.sopt.jointseminar.melon.presentation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import org.sopt.jointseminar.melon.R
+import org.sopt.jointseminar.melon.data.posting.ResponseHomeFavourite
+import org.sopt.jointseminar.melon.data.posting.ResponseRecentMusic
 import org.sopt.jointseminar.melon.databinding.FragmentHomeBinding
 import org.sopt.jointseminar.melon.presentation.album.AlbumFragment
 
@@ -16,6 +18,8 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding ?: error("초기화 안됨")
     var favouriteDataSet = mutableListOf<ResponseHomeFavourite>()
+    var recentDataSet = mutableListOf<ResponseRecentMusic>()
+    private lateinit var homeRecentAdapter: HomeRecentListAdapter
     private lateinit var homeFavouriteAdapter: HomeFavouriteAdapter
     private val homeViewModel: HomeViewModel by viewModels()
     override fun onCreateView(
@@ -28,7 +32,9 @@ class HomeFragment : Fragment() {
         _binding?.lifecycleOwner = this@HomeFragment
 
         initFavouriteDataSet()
-        initAdapter()
+        initRecentDataSet()
+        initHomeFavoriteAdapter()
+        initRecentAdapter()
         return binding.root
     }
 
@@ -51,13 +57,40 @@ class HomeFragment : Fragment() {
         )
     }
 
-    private fun initAdapter() {
-        homeFavouriteAdapter = HomeFavouriteAdapter { onFavouriteClick() }
+    private fun initRecentDataSet() {
+        recentDataSet.addAll(
+            listOf(
+                ResponseRecentMusic(
+                    image = R.drawable.img_albumcover,
+                    title = "마음을 담아줘",
+                    singer = "타코앤제이형"
+                ),
+                ResponseRecentMusic(
+                    image = R.drawable.home_cover_two,
+                    title = "Be My Side",
+                    singer = "횡치열"
+                ),
+                ResponseRecentMusic(
+                    image = R.drawable.home_img_box,
+                    title = "That that",
+                    singer = "싸이"
+                )
+            )
+        )
+    }
+
+    private fun initHomeFavoriteAdapter() {
+        homeFavouriteAdapter = HomeFavouriteAdapter()
         binding.rvRepository.adapter =
             homeFavouriteAdapter.apply { submitList(favouriteDataSet) }
     }
 
-    private fun onFavouriteClick() {
+    private fun initRecentAdapter() {
+        homeRecentAdapter = HomeRecentListAdapter { onRecentClick() }
+        binding.rvRecentMusic.adapter = homeRecentAdapter.apply { submitList(recentDataSet) }
+    }
+
+    private fun onRecentClick() {
         parentFragmentManager.commit {
             add(R.id.fcv_main, AlbumFragment())
             addToBackStack(null)
