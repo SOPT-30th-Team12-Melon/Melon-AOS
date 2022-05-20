@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.presentation
+package org.sopt.jointseminar.melon.presentation.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,11 +15,10 @@ class HomeViewModel : ViewModel() {
     }
 
     private fun fetchTopMusicList() {
-        // TODO remote에서 comment 목록 fetch 하기
         _topMusicList.value = mutableListOf(
-            TopMusicInfo(Rank.FIRST, "That that", "싸이", R.drawable.img_favorite),
-            TopMusicInfo(Rank.SECOND, "That that", "싸이", R.drawable.img_favorite),
-            TopMusicInfo(Rank.THIRD, "That that", "싸이", R.drawable.img_favorite)
+            TopMusicInfo(Rank.FIRST, "That that", "싸이", R.drawable.home_img_box),
+            TopMusicInfo(Rank.SECOND, "봄여름가을겨울", "빅뱅", R.drawable.home_img_box_two),
+            TopMusicInfo(Rank.THIRD, "Love dive", "아이브", R.drawable.home_img_box_third)
         )
     }
 }
