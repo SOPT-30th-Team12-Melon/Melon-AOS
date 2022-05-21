@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import org.sopt.jointseminar.melon.R
-import org.sopt.jointseminar.melon.data.posting.ResponseHomeFavourite
-import org.sopt.jointseminar.melon.data.posting.ResponseRecentMusic
+import org.sopt.jointseminar.melon.data.music.ResponseHomeFavourite
+import org.sopt.jointseminar.melon.data.music.ResponseRecentMusic
 import org.sopt.jointseminar.melon.databinding.FragmentHomeBinding
 import org.sopt.jointseminar.melon.presentation.album.AlbumFragment
 

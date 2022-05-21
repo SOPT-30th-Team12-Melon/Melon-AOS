@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import org.sopt.jointseminar.melon.data.posting.ResponseRecentMusic
+import org.sopt.jointseminar.melon.data.music.ResponseRecentMusic
 import org.sopt.jointseminar.melon.databinding.ItemRecentMusicSampleListBinding
 
 class HomeRecentListAdapter(private val onAlbumClick: () -> Unit) :

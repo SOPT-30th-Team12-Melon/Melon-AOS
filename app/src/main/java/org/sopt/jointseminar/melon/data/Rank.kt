@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.data.posting
+package org.sopt.jointseminar.melon.data
 
 import org.sopt.jointseminar.melon.R
 

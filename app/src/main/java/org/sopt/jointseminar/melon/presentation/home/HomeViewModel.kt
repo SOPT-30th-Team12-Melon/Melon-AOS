@@ -3,7 +3,7 @@ package org.sopt.jointseminar.melon.presentation.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.sopt.jointseminar.melon.R
-import org.sopt.jointseminar.melon.data.posting.Rank
+import org.sopt.jointseminar.melon.data.Rank
 import org.sopt.jointseminar.melon.data.posting.TopMusicInfo
 
 class HomeViewModel : ViewModel() {
