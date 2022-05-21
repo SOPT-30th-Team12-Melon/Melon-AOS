@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="org.sopt.jointseminar.melon.presentation.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/layout_home"
+        android:id="@+id/layout_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_900"
-        tools:context=".presentation.HomeFragment">
+        tools:context=".presentation.home.HomeFragment">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-74dp"
+            tools:layout_editor_absoluteY="-127dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -40,6 +46,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/foreign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:fontFamily="@font/pretendard_m"
+                    android:text="해외"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_line_two"
+                    app:layout_constraintStart_toEndOf="@id/iv_line_two" />
 
                 <ImageView
                     android:id="@+id/iv_home_buy"
@@ -95,11 +112,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="54dp"
                     android:fontFamily="@font/pretendard_sb"
+                    android:text="숨겨진 명곡 발굴 프로젝트 ‘트랙제로’"
                     android:textColor="@color/gray_300"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_favorite"
-                    app:layout_constraintTop_toBottomOf="@id/rv_repository"
-                    tools:text="숨겨진 명곡 발굴 프로젝트 ‘트랙제로’" />
+                    app:layout_constraintTop_toBottomOf="@id/rv_repository" />
 
                 <ImageView
                     android:id="@+id/iv_track"
@@ -116,32 +133,414 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="48dp"
                     android:fontFamily="@font/pretendard_sb"
+                    android:text="최신음악"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@id/iv_track"
-                    app:layout_constraintTop_toBottomOf="@id/iv_track"
-                    tools:text="최신음악" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_track" />
 
                 <TextView
                     android:id="@+id/tv_entire"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginBottom="4dp"
                     android:fontFamily="@font/pretendard_m"
                     android:text="전체"
-                    android:layout_marginStart="7dp"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_recent_music"
-                    app:layout_constraintStart_toEndOf="@+id/tv_recent_music"
                     android:textColor="@color/green_500"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_recent_music"
+                    app:layout_constraintStart_toEndOf="@+id/tv_recent_music" />
+
                 <ImageView
                     android:id="@+id/iv_line"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line"
-                    app:layout_constraintStart_toEndOf="@id/tv_entire"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_entire"
                     android:layout_marginStart="9dp"
-                    />
+                    android:src="@drawable/ic_line"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_entire"
+                    app:layout_constraintStart_toEndOf="@id/tv_entire" />
+
+                <TextView
+                    android:id="@+id/tv_domestic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:fontFamily="@font/pretendard_m"
+                    android:text="국내"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_line"
+                    app:layout_constraintStart_toStartOf="@id/iv_line" />
+
+                <ImageView
+                    android:id="@+id/iv_line_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:src="@drawable/ic_line"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_domestic"
+                    app:layout_constraintStart_toEndOf="@id/tv_domestic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="전체보기"
+                    android:textColor="@color/gray_500"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/foreign"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_recent_music"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_recent_music"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_recent_music_sample_list" />
+
+                <TextView
+                    android:id="@+id/tv_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="49dp"
+                    android:text="TOP3"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@id/tv_recent_music"
+                    app:layout_constraintTop_toBottomOf="@id/rv_recent_music" />
+
+                <include
+                    android:id="@+id/ic_first_music"
+                    layout="@layout/item_top_music"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_top"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_top"
+                    bind:topMusicInfo="@{viewModel.topMusicList.get(0)}" />
+
+                <include
+                    android:id="@+id/ic_second_music"
+                    layout="@layout/item_top_music"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_top"
+                    app:layout_constraintTop_toBottomOf="@id/ic_first_music"
+                    bind:topMusicInfo="@{viewModel.topMusicList.get(1)}" />
+
+                <include
+                    android:id="@+id/ic_third_music"
+                    layout="@layout/item_top_music"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_top"
+                    app:layout_constraintTop_toBottomOf="@id/ic_second_music"
+                    bind:topMusicInfo="@{viewModel.topMusicList.get(2)}" />
+
+                <TextView
+                    android:id="@+id/tv_trendy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/pretendard_sb"
+                    android:text="멜론트랜디 50"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/ic_third_music"
+                    app:layout_constraintTop_toBottomOf="@+id/ic_third_music" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_trendy_senti"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/gray_600"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_trendy"
+                    app:layout_constraintTop_toBottomOf="@id/tv_trendy">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_album_cover"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/rectangle_radius_6"
+                            android:clipToOutline="true"
+                            android:src="@drawable/ic_home_trendy_senti"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.61" />
+
+                        <ImageView
+                            android:id="@+id/iv_play"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="27dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_album_cover"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="@+id/iv_album_cover"
+                            app:layout_constraintStart_toStartOf="@+id/iv_album_cover"
+                            app:layout_constraintTop_toTopOf="@+id/iv_album_cover"
+                            app:layout_constraintWidth_percent="0.26"
+                            app:srcCompat="@drawable/ic_play_big" />
+
+                        <TextView
+                            android:id="@+id/tv_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:fontFamily="@font/pretendard_m"
+                            android:text="센치한"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_album_cover" />
+
+                        <TextView
+                            android:id="@+id/tv_hashtag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="11dp"
+                            android:text="#감성힙합 #알앤비"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_mood" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_trendy_drive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:background="@color/gray_600"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cv_trendy_senti">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_album_drive"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/rectangle_radius_6"
+                            android:clipToOutline="true"
+                            android:src="@drawable/ic_home_trendy_drive"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.61" />
+
+                        <ImageView
+                            android:id="@+id/iv_drive_play"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="27dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_album_drive"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="@+id/iv_album_drive"
+                            app:layout_constraintStart_toStartOf="@+id/iv_album_drive"
+                            app:layout_constraintTop_toTopOf="@+id/iv_album_drive"
+                            app:layout_constraintWidth_percent="0.26"
+                            app:srcCompat="@drawable/ic_play_big" />
+
+                        <TextView
+                            android:id="@+id/tv_drive_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:fontFamily="@font/pretendard_m"
+                            android:text="운전"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_album_drive" />
+
+                        <TextView
+                            android:id="@+id/tv_drive_hashtag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="11dp"
+                            android:text="#힙합 #락"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_drive_mood" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_trendy_weekend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="126dp"
+                    android:background="@color/gray_600"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cv_trendy_senti">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_album_weekend"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/rectangle_radius_6"
+                            android:clipToOutline="true"
+                            android:src="@drawable/ic_home_trendy_weekend"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.61" />
+
+                        <ImageView
+                            android:id="@+id/iv_weekend_play"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="27dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_album_weekend"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="@+id/iv_album_weekend"
+                            app:layout_constraintStart_toStartOf="@+id/iv_album_weekend"
+                            app:layout_constraintTop_toTopOf="@+id/iv_album_weekend"
+                            app:layout_constraintWidth_percent="0.26"
+                            app:srcCompat="@drawable/ic_play_big" />
+
+                        <TextView
+                            android:id="@+id/tv_weekend_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:fontFamily="@font/pretendard_m"
+                            android:text="주말"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_album_weekend" />
+
+                        <TextView
+                            android:id="@+id/tv_weekend_hashtag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="11dp"
+                            android:text="#신나는 #케이팝"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_weekend_mood" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_trendy_picnic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:background="@color/gray_600"
+                    app:cardCornerRadius="6dp"
+                    android:layout_marginTop="7dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cv_trendy_drive">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_album_picnic"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/rectangle_radius_6"
+                            android:clipToOutline="true"
+                            android:src="@drawable/ic_home_trendy_picnic"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.61" />
+
+                        <ImageView
+                            android:id="@+id/iv_picnic_play"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="27dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_album_picnic"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="@+id/iv_album_picnic"
+                            app:layout_constraintStart_toStartOf="@+id/iv_album_picnic"
+                            app:layout_constraintTop_toTopOf="@+id/iv_album_picnic"
+                            app:layout_constraintWidth_percent="0.26"
+                            app:srcCompat="@drawable/ic_play_big" />
+
+                        <TextView
+                            android:id="@+id/tv_picnic_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:fontFamily="@font/pretendard_m"
+                            android:text="피크닉"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_album_picnic" />
+
+                        <TextView
+                            android:id="@+id/tv_picnic_hashtag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="11dp"
+                            android:text="#봄 #햇빛"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_picnic_mood" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

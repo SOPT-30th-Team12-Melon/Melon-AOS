@@ -7,6 +7,7 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import org.sopt.jointseminar.melon.R
 import org.sopt.jointseminar.melon.databinding.ActivityMainBinding
+import org.sopt.jointseminar.melon.presentation.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

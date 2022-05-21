@@ -7,7 +7,7 @@
 
         <variable
             name="favouriteData"
-            type="org.sopt.jointseminar.melon.presentation.ResponseHomeFavourite" />
+            type="org.sopt.jointseminar.melon.data.music.ResponseHomeFavourite" />
     </data>
 
 
@@ -19,7 +19,6 @@
             android:id="@+id/tv_weekly_playlist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/pretendard_m"
             android:text="@{favouriteData.title}"
