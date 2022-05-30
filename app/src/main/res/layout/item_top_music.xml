@@ -7,7 +7,7 @@
 
         <variable
             name="topMusicInfo"
-            type="org.sopt.jointseminar.melon.data.posting.TopMusicInfo" />
+            type="org.sopt.jointseminar.melon.data.entity.posting.TopMusicInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

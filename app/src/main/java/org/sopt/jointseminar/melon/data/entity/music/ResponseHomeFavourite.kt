@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.data.music
+package org.sopt.jointseminar.melon.data.entity.music
 
 data class ResponseHomeFavourite(
     val title: String,

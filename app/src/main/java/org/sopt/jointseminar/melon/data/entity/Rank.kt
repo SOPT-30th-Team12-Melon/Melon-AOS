@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.data
+package org.sopt.jointseminar.melon.data.entity
 
 import org.sopt.jointseminar.melon.R
 
