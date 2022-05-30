@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import org.sopt.jointseminar.melon.data.music.ResponseHomeFavourite
+import org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavourite
 import org.sopt.jointseminar.melon.databinding.ItemRecommendedMusicSampleListBinding
 
 class HomeFavouriteAdapter() :
