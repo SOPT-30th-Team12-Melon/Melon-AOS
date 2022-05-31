@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import org.sopt.jointseminar.melon.data.entity.album.AlbumCommentInfo
 import org.sopt.jointseminar.melon.databinding.ItemCommentBinding
 
@@ -14,6 +15,7 @@ class AlbumCommentListAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(comment: AlbumCommentInfo) {
             binding.comment = comment
+            Glide.with(binding.ivUserImg.context).load(comment.authorImage).into(binding.ivUserImg)
         }
     }
 
