@@ -3,8 +3,8 @@ package org.sopt.jointseminar.melon.presentation.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.sopt.jointseminar.melon.R
-import org.sopt.jointseminar.melon.data.Rank
-import org.sopt.jointseminar.melon.data.posting.TopMusicInfo
+import org.sopt.jointseminar.melon.data.entity.Rank
+import org.sopt.jointseminar.melon.data.entity.posting.TopMusicInfo
 
 class HomeViewModel : ViewModel() {
     private var _topMusicList = MutableLiveData<MutableList<TopMusicInfo>>()
