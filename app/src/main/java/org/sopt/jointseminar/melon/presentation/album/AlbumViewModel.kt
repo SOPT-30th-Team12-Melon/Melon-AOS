@@ -32,7 +32,7 @@ class AlbumViewModel : ViewModel() {
     }
 
     private fun fetchAlbumInfo() {
-        call.getAlbumInfo("628cfb78e5adddc245d2d1ac").enqueueUtil(
+        call.getAlbumInfo("6290145b6af16276098d04d9").enqueueUtil(
             { result ->
                 albumInfo.value = result.data.convertToAlbumInfo(result.data)
             }, { code ->
