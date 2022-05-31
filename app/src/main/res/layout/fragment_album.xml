@@ -103,7 +103,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="@{viewModel.albumInfo.releaseDate}"
                     android:textColor="@color/gray_300"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="@id/gl_start"
@@ -356,11 +355,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:fontFamily="@font/pretendard_r"
-                    tools:text="1곡"
                     android:textColor="@color/gray_300"
                     android:textSize="13sp"
                     app:layout_constraintEnd_toStartOf="@id/iv_dot_music"
-                    app:layout_constraintTop_toTopOf="@id/tv_minute" />
+                    app:layout_constraintTop_toTopOf="@id/tv_minute"
+                    tools:text="1곡" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/iv_dot_music"
@@ -379,12 +378,12 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_r"
                     android:text="@{viewModel.albumInfo.time}"
-                    tools:text="3분"
                     android:textColor="@color/gray_300"
                     android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/btn_select_all"
                     app:layout_constraintEnd_toEndOf="@id/gl_end"
-                    app:layout_constraintTop_toTopOf="@id/btn_select_all" />
+                    app:layout_constraintTop_toTopOf="@id/btn_select_all"
+                    tools:text="3분" />
 
                 <include
                     android:id="@+id/layout_music"
@@ -424,11 +423,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_l"
                     android:text="@{viewModel.albumInfo.type}"
-                    tools:text="싱글"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@id/tv_release_date_content"
-                    app:layout_constraintTop_toTopOf="@id/tv_type_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_type_label"
+                    tools:text="싱글" />
 
                 <TextView
                     android:id="@+id/tv_genre_label"
@@ -447,11 +446,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_l"
                     android:text="@{viewModel.albumInfo.genre}"
-                    tools:text="랩/힙합/인디음악"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@id/tv_release_date_content"
-                    app:layout_constraintTop_toTopOf="@id/tv_genre_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_genre_label"
+                    tools:text="랩/힙합/인디음악" />
 
                 <TextView
                     android:id="@+id/tv_release_date_label"
@@ -472,11 +471,11 @@
                     android:layout_marginStart="13dp"
                     android:fontFamily="@font/pretendard_l"
                     android:text="@{viewModel.albumInfo.releaseDate}"
-                    tools:text="2022.05.12"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/tv_release_date_label"
-                    app:layout_constraintTop_toTopOf="@id/tv_release_date_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_release_date_label"
+                    tools:text="2022.05.12" />
 
                 <TextView
                     android:id="@+id/tv_publisher_date_label"
@@ -496,11 +495,11 @@
                     android:layout_marginStart="13dp"
                     android:fontFamily="@font/pretendard_l"
                     android:text="@{viewModel.albumInfo.publisher}"
-                    tools:text="워너뮤직"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/tv_publisher_date_label"
-                    app:layout_constraintTop_toTopOf="@id/tv_publisher_date_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_publisher_date_label"
+                    tools:text="워너뮤직" />
 
                 <TextView
                     android:id="@+id/tv_agency_label"
@@ -520,11 +519,11 @@
                     android:layout_marginStart="13dp"
                     android:fontFamily="@font/pretendard_l"
                     android:text="@{viewModel.albumInfo.agency}"
-                    tools:text="eMPT$ TAPE RECORD"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/tv_agency_label"
-                    app:layout_constraintTop_toTopOf="@id/tv_agency_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_agency_label"
+                    tools:text="eMPT$ TAPE RECORD" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -545,11 +544,11 @@
                     android:fontFamily="@font/pretendard_l"
                     android:lineSpacingExtra="5dp"
                     android:text="@{viewModel.albumInfo.description}"
-                    tools:text="행복했던 기억, 그때 그 마음들을 이 노래에 담아주세요.\n힘들다 느껴질 때 이 노래가 위로가 될 수 있게.\n[cREDIT]Lyrics by 타코앤제이형Composed by\n타코앤제이형, 조영현Arranged by 타코앤제이형Vocal"
                     android:textColor="@color/gray_300"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@id/gl_start"
-                    app:layout_constraintTop_toBottomOf="@id/tv_agency_label" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_agency_label"
+                    tools:text="행복했던 기억, 그때 그 마음들을 이 노래에 담아주세요.\n힘들다 느껴질 때 이 노래가 위로가 될 수 있게.\n[cREDIT]Lyrics by 타코앤제이형Composed by\n타코앤제이형, 조영현Arranged by 타코앤제이형Vocal" />
 
                 <!-- 댓글 -->
                 <TextView

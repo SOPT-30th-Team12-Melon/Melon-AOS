@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import org.sopt.jointseminar.melon.databinding.FragmentAlbumBinding
 import org.sopt.jointseminar.melon.presentation.posting.PostingActivity
+import org.sopt.jointseminar.melon.util.convertTimeZonToYMD
 import java.text.DecimalFormat
 
 class AlbumFragment : Fragment() {
@@ -60,6 +61,7 @@ class AlbumFragment : Fragment() {
 
         albumViewModel.albumInfo.observe(viewLifecycleOwner) {
             binding.tvScore.text = decimalFormat.format(it.score)
+            binding.tvReleaseDate.text = convertTimeZonToYMD(it.releaseDate)
             // FIXME 이미지가 load되지 않는 문제가 있음
             Glide.with(binding.ivArtistImg.context).load(it.artistImage).into(binding.ivArtistImg)
             Glide.with(binding.ivAlbum.context).load(it.coverImage).into(binding.ivAlbum)

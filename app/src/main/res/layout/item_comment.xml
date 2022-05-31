@@ -7,6 +7,8 @@
 
         <import type="org.sopt.jointseminar.melon.R" />
 
+        <import type="org.sopt.jointseminar.melon.util.DateFormatUtilKt" />
+
         <variable
             name="comment"
             type="org.sopt.jointseminar.melon.data.entity.album.AlbumCommentInfo" />
@@ -62,12 +64,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:fontFamily="@font/pretendard_l"
-            android:text="@{comment.createdAt}"
             android:textColor="@color/gray_500"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_user_img"
             app:layout_constraintEnd_toStartOf="@id/btn_more"
             app:layout_constraintTop_toTopOf="@id/iv_user_img"
+            app:timeFormat="@{DateFormatUtilKt.convertTimeZonToLong(comment.createdAt)}"
             tools:text="4시간 전" />
 
         <ImageButton
