@@ -32,7 +32,7 @@ class AlbumViewModel : ViewModel() {
     }
 
     private fun fetchAlbumInfo() {
-        call.getAlbumInfo("6290145b6af16276098d04d9").enqueueUtil(
+        call.getAlbumInfo("628cfb78e5adddc245d2d1ac").enqueueUtil(
             { result ->
                 albumInfo.value = result.data.convertToAlbumInfo(result.data)
             }, { code ->
@@ -40,7 +40,6 @@ class AlbumViewModel : ViewModel() {
             }
         )
     }
-
 
     /** 글쓰기 화면에서 댓글 등록 후 해당 댓글을 _commentList에 추가 */
     fun addComment(comment: AlbumCommentInfo) {
