@@ -90,11 +90,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="26dp"
                     android:fontFamily="@font/pretendard_sb"
-                    android:text="마음을 담아줘"
+                    android:text="@{viewModel.albumInfo.title}"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@id/gl_start"
-                    app:layout_constraintTop_toBottomOf="@id/iv_album" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_album"
+                    tools:text="마음을 담아" />
 
                 <TextView
                     android:id="@+id/tv_release_date"
@@ -102,11 +103,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="2022.05.12"
+                    android:text="@{viewModel.albumInfo.releaseDate}"
                     android:textColor="@color/gray_300"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="@id/gl_start"
-                    app:layout_constraintTop_toBottomOf="@id/tv_album_title" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_album_title"
+                    tools:text="2022.05.12" />
 
                 <TextView
                     android:id="@+id/tv_flac"
@@ -147,7 +149,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_half_star" />
+                        android:src="@drawable/ic_full_star" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -161,12 +163,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="5.0"
                     android:textColor="@color/green_500"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/layout_star_score"
                     app:layout_constraintStart_toEndOf="@id/layout_star_score"
-                    app:layout_constraintTop_toTopOf="@id/layout_star_score" />
+                    app:layout_constraintTop_toTopOf="@id/layout_star_score"
+                    tools:text="4.0" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/iv_dot_score"
@@ -186,7 +188,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="@{String.format(context.getString(R.string.num_of_people), 2)}"
+                    android:text="@{String.format(context.getString(R.string.num_of_people), viewModel.albumInfo.numOfPeople)}"
                     android:textColor="@color/gray_500"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@id/iv_dot_score"
@@ -209,12 +211,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="타코앤제이형"
+                    android:text="@{viewModel.albumInfo.singerName}"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/iv_artist_img"
                     app:layout_constraintStart_toEndOf="@id/iv_artist_img"
-                    app:layout_constraintTop_toTopOf="@id/iv_artist_img" />
+                    app:layout_constraintTop_toTopOf="@id/iv_artist_img"
+                    tools:text="타코앤제이형" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -234,11 +237,12 @@
                     android:drawableStart="@drawable/ic_heart"
                     android:drawablePadding="5dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="20"
+                    android:text="@{Integer.toString(viewModel.albumInfo.likeNum)}"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="@id/gl_start"
-                    app:layout_constraintTop_toBottomOf="@id/iv_artist_img" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_artist_img"
+                    tools:text="20" />
 
                 <Button
                     android:id="@+id/btn_comment"
@@ -249,11 +253,12 @@
                     android:drawableStart="@drawable/ic_comment"
                     android:drawablePadding="5dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="3"
+                    android:text="@{Integer.toString(viewModel.commentList.size)}"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@id/btn_heart"
-                    app:layout_constraintTop_toTopOf="@id/btn_heart" />
+                    app:layout_constraintTop_toTopOf="@id/btn_heart"
+                    tools:text="3" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cv_shuffle"
@@ -351,7 +356,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:fontFamily="@font/pretendard_r"
-                    android:text="1곡"
+                    tools:text="1곡"
                     android:textColor="@color/gray_300"
                     android:textSize="13sp"
                     app:layout_constraintEnd_toStartOf="@id/iv_dot_music"
@@ -373,7 +378,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_r"
-                    android:text="3분"
+                    android:text="@{viewModel.albumInfo.time}"
+                    tools:text="3분"
                     android:textColor="@color/gray_300"
                     android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/btn_select_all"
@@ -417,7 +423,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="싱글"
+                    android:text="@{viewModel.albumInfo.type}"
+                    tools:text="싱글"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@id/tv_release_date_content"
@@ -439,7 +446,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="랩/힙합/인디음악"
+                    android:text="@{viewModel.albumInfo.genre}"
+                    tools:text="랩/힙합/인디음악"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@id/tv_release_date_content"
@@ -463,7 +471,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="13dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="2022.05.12"
+                    android:text="@{viewModel.albumInfo.releaseDate}"
+                    tools:text="2022.05.12"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/tv_release_date_label"
@@ -486,7 +495,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="13dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="워너뮤직"
+                    android:text="@{viewModel.albumInfo.publisher}"
+                    tools:text="워너뮤직"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/tv_publisher_date_label"
@@ -509,7 +519,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="13dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="eMPT$ TAPE RECORD"
+                    android:text="@{viewModel.albumInfo.agency}"
+                    tools:text="eMPT$ TAPE RECORD"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/tv_agency_label"
@@ -533,7 +544,8 @@
                     android:layout_marginTop="30dp"
                     android:fontFamily="@font/pretendard_l"
                     android:lineSpacingExtra="5dp"
-                    android:text="행복했던 기억, 그때 그 마음들을 이 노래에 담아주세요.\n힘들다 느껴질 때 이 노래가 위로가 될 수 있게.\n[cREDIT]Lyrics by 타코앤제이형Composed by\n타코앤제이형, 조영현Arranged by 타코앤제이형Vocal"
+                    android:text="@{viewModel.albumInfo.description}"
+                    tools:text="행복했던 기억, 그때 그 마음들을 이 노래에 담아주세요.\n힘들다 느껴질 때 이 노래가 위로가 될 수 있게.\n[cREDIT]Lyrics by 타코앤제이형Composed by\n타코앤제이형, 조영현Arranged by 타코앤제이형Vocal"
                     android:textColor="@color/gray_300"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@id/gl_start"

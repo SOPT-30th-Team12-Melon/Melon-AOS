@@ -1,6 +1,7 @@
 package org.sopt.jointseminar.melon.data.api
 
 import org.sopt.jointseminar.melon.data.entity.album.ResponseAlbumCommentData
+import org.sopt.jointseminar.melon.data.entity.album.ResponseAlbumData
 import org.sopt.jointseminar.melon.data.entity.posting.RequestPostingData
 import org.sopt.jointseminar.melon.data.entity.posting.ResponsePostingData
 import retrofit2.Call
@@ -20,4 +21,9 @@ interface Service {
     fun getComment(
         @Path("albumId") albumId: String
     ): Call<ResponseAlbumCommentData>
+
+    @GET("album/{albumId}")
+    fun getAlbumInfo(
+        @Path("albumId") albumId: String
+    ): Call<ResponseAlbumData>
 }
