@@ -6,6 +6,10 @@
     <data>
 
         <import type="org.sopt.jointseminar.melon.R" />
+
+        <variable
+            name="viewModel"
+            type="org.sopt.jointseminar.melon.presentation.album.AlbumViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -542,7 +546,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="70dp"
                     android:fontFamily="@font/pretendard_sb"
-                    android:text="@{String.format(context.getString(R.string.format_comment), 3)}"
+                    android:text="@{String.format(context.getString(R.string.format_comment), viewModel.commentList.size)}"
                     android:textColor="@color/gray_300"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@id/gl_start"

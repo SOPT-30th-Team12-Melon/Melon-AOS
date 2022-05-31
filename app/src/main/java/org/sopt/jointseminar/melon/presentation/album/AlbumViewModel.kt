@@ -1,26 +1,40 @@
 package org.sopt.jointseminar.melon.presentation.album
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.sopt.jointseminar.melon.model.CommentInfo
+import org.sopt.jointseminar.melon.data.api.ServiceCreator
+import org.sopt.jointseminar.melon.data.entity.album.AlbumCommentInfo
+import org.sopt.jointseminar.melon.util.CallExt.enqueueUtil
 
 class AlbumViewModel : ViewModel() {
-    private var _commentList = MutableLiveData<MutableList<CommentInfo>>()
+    private var _commentList = MutableLiveData<MutableList<AlbumCommentInfo>>()
     val commentList get() = _commentList
+    private val call = ServiceCreator.service
 
     init {
         fetchCommentList()
     }
 
     private fun fetchCommentList() {
-        // TODO remote에서 comment 목록 fetch 하기
-        _commentList.value = mutableListOf(CommentInfo("노래에 맘 터집니다"),
-            CommentInfo("명반"),
-            CommentInfo("타코앤와사비"))
+        call.getComment("6290145b6af16276098d04d9").enqueueUtil(
+            { result ->
+                Log.i(TAG, "fetchCommentList: $result")
+                _commentList.value = result.data.map { comment ->
+                    comment.convertToAlbumCommentInfo(comment)
+                }.toMutableList()
+            }, { code ->
+                Log.d(TAG, "Failed to fetch comment: $code")
+            }
+        )
     }
 
     /** 글쓰기 화면에서 댓글 등록 후 해당 댓글을 _commentList에 추가 */
-    fun addComment(commentInfo: CommentInfo) {
-        _commentList.value?.add(commentInfo)
+    fun addComment(comment: AlbumCommentInfo) {
+        _commentList.value?.add(comment)
+    }
+
+    companion object {
+        private const val TAG = "AlbumViewModel"
     }
 }

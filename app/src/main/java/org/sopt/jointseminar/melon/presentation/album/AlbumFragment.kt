@@ -23,6 +23,8 @@ class AlbumFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentAlbumBinding.inflate(inflater, container, false)
+        _binding!!.viewModel = albumViewModel
+        _binding!!.lifecycleOwner = this@AlbumFragment
 
         initView()
         observeComment()
