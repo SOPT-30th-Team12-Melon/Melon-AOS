@@ -65,6 +65,7 @@ class AlbumFragment : Fragment() {
         albumViewModel.albumInfo.observe(viewLifecycleOwner) { albumInfo ->
             binding.tvScore.text = decimalFormat.format(albumInfo.score)
             binding.tvReleaseDate.text = convertTimeZonToYMD(albumInfo.releaseDate)
+            binding.tvReleaseDateContent.text = convertTimeZonToYMD(albumInfo.releaseDate)
 
             Glide.with(binding.ivArtistImg.context).load(albumInfo.artistImage)
                 .into(binding.ivArtistImg)

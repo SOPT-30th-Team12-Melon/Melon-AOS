@@ -471,7 +471,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="13dp"
                     android:fontFamily="@font/pretendard_l"
-                    android:text="@{viewModel.albumInfo.releaseDate}"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/tv_release_date_label"
