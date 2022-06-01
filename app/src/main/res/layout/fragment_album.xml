@@ -355,6 +355,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:fontFamily="@font/pretendard_r"
+                    android:text="@{String.format(context.getString(R.string.format_num_of_song), viewModel.albumInfo.songList.size())}"
                     android:textColor="@color/gray_300"
                     android:textSize="13sp"
                     app:layout_constraintEnd_toStartOf="@id/iv_dot_music"
