@@ -5,15 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import org.sopt.jointseminar.melon.data.entity.album.AlbumCommentInfo
 import org.sopt.jointseminar.melon.databinding.ItemCommentBinding
-import org.sopt.jointseminar.melon.model.CommentInfo
 
 class AlbumCommentListAdapter :
-    ListAdapter<CommentInfo, AlbumCommentListAdapter.CommentViewHolder>(diffCallback) {
+    ListAdapter<AlbumCommentInfo, AlbumCommentListAdapter.CommentViewHolder>(diffCallback) {
     class CommentViewHolder(private val binding: ItemCommentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(comment: CommentInfo) {
+        fun bind(comment: AlbumCommentInfo) {
             binding.commentData = comment
+            Glide.with(binding.ivUserImg.context).load(comment.author.image).into(binding.ivUserImg)
         }
     }
 
@@ -28,12 +30,18 @@ class AlbumCommentListAdapter :
     }
 
     companion object {
-        private val diffCallback = object : DiffUtil.ItemCallback<CommentInfo>() {
-            override fun areItemsTheSame(oldItem: CommentInfo, newItem: CommentInfo): Boolean {
+        private val diffCallback = object : DiffUtil.ItemCallback<AlbumCommentInfo>() {
+            override fun areItemsTheSame(
+                oldItem: AlbumCommentInfo,
+                newItem: AlbumCommentInfo,
+            ): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: CommentInfo, newItem: CommentInfo): Boolean {
+            override fun areContentsTheSame(
+                oldItem: AlbumCommentInfo,
+                newItem: AlbumCommentInfo,
+            ): Boolean {
                 return oldItem == newItem
             }
         }

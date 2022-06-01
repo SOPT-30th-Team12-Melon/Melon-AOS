@@ -7,9 +7,11 @@
 
         <import type="org.sopt.jointseminar.melon.R" />
 
+        <import type="org.sopt.jointseminar.melon.util.DateFormatUtilKt" />
+
         <variable
             name="commentData"
-            type="org.sopt.jointseminar.melon.model.CommentInfo" />
+            type="org.sopt.jointseminar.melon.data.entity.album.AlbumCommentInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,26 +49,27 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:fontFamily="@font/pretendard_l"
-            android:text="쌩이"
+            android:text="@{commentData.author.nickName}"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_user_img"
             app:layout_constraintStart_toEndOf="@id/iv_user_img"
-            app:layout_constraintTop_toTopOf="@id/iv_user_img" />
+            app:layout_constraintTop_toTopOf="@id/iv_user_img"
+            tools:text="쌩이" />
 
+        <!-- n시간 전 포맷으로 변경 -->
         <TextView
             android:id="@+id/tv_create_at"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:fontFamily="@font/pretendard_l"
-            android:text="@{String.format(context.getString(R.string.format_time), 4)}"
+            android:text="4시간 전"
             android:textColor="@color/gray_500"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_user_img"
             app:layout_constraintEnd_toStartOf="@id/btn_more"
-            app:layout_constraintTop_toTopOf="@id/iv_user_img"
-            tools:text="4시간 전" />
+            app:layout_constraintTop_toTopOf="@id/iv_user_img" />
 
         <ImageButton
             android:id="@+id/btn_more"
@@ -97,11 +100,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/pretendard_l"
-            android:text="답글 0"
+            android:text="@{String.format(context.getString(R.string.format_reply), 0)}"
             android:textColor="@color/gray_500"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/gl_start"
-            app:layout_constraintTop_toBottomOf="@id/tv_comment" />
+            app:layout_constraintTop_toBottomOf="@id/tv_comment"
+            tools:text="답글 0" />
 
         <Button
             android:id="@+id/btn_like"
