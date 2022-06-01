@@ -9,15 +9,16 @@ import com.bumptech.glide.Glide
 import org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavourite
 import org.sopt.jointseminar.melon.databinding.ItemRecommendedMusicSampleListBinding
 
-class HomeFavouriteAdapter() :
-    ListAdapter<ResponseHomeFavourite, HomeFavouriteAdapter.HomeFavouriteViewHolder>(
+class HomeFavouriteAdapter :
+    ListAdapter<ResponseHomeFavourite.Data, HomeFavouriteAdapter.HomeFavouriteViewHolder>(
         FavouriteComparator
     ) {
 
     class HomeFavouriteViewHolder(private val binding: ItemRecommendedMusicSampleListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: ResponseHomeFavourite) {
+        fun onBind(data: ResponseHomeFavourite.Data) {
             binding.favouriteData = data
+            binding.tvHashTag = data.hashtag.joinToString("")
             Glide.with(binding.ivMusic.context)
                 .load(data.image)
                 .into(binding.ivMusic)
@@ -38,17 +39,17 @@ class HomeFavouriteAdapter() :
     }
 
     companion object {
-        private val FavouriteComparator = object : DiffUtil.ItemCallback<ResponseHomeFavourite>() {
+        private val FavouriteComparator = object : DiffUtil.ItemCallback<ResponseHomeFavourite.Data>() {
             override fun areItemsTheSame(
-                oldItem: ResponseHomeFavourite,
-                newItem: ResponseHomeFavourite
+                oldItem: ResponseHomeFavourite.Data,
+                newItem: ResponseHomeFavourite.Data
             ): Boolean {
                 return oldItem.title == newItem.title
             }
 
             override fun areContentsTheSame(
-                oldItem: ResponseHomeFavourite,
-                newItem: ResponseHomeFavourite
+                oldItem: ResponseHomeFavourite.Data,
+                newItem: ResponseHomeFavourite.Data
             ): Boolean {
                 return oldItem == newItem
             }
