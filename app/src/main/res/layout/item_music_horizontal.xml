@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="songData"
+            type="org.sopt.jointseminar.melon.data.entity.album.AlbumSongInfo" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,12 +23,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:fontFamily="@font/pretendard_l"
-            android:text="01"
             android:textColor="@color/gray_300"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="01" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_title_tag"
@@ -70,26 +77,30 @@
 
         <TextView
             android:id="@+id/tv_comment"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
+            android:layout_marginHorizontal="3dp"
+            android:ellipsize="end"
             android:fontFamily="@font/pretendard_l"
-            android:text="마음을 담아줘 (With 슬로(Sllo))"
+            android:text="@{songData.title}"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/cv_title_tag"
+            app:layout_constraintEnd_toStartOf="@id/btn_play"
             app:layout_constraintStart_toEndOf="@id/cv_title_tag"
-            app:layout_constraintTop_toTopOf="@id/cv_title_tag" />
+            app:layout_constraintTop_toTopOf="@id/cv_title_tag"
+            tools:text="마음을 담아줘 (With 슬로(Sllo))" />
 
         <TextView
+            android:id="@+id/tv_artist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:fontFamily="@font/pretendard_l"
-            android:text="타코앤제이형"
             android:textColor="@color/gray_300"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/cv_title_tag"
-            app:layout_constraintTop_toBottomOf="@id/tv_comment" />
+            app:layout_constraintTop_toBottomOf="@id/tv_comment"
+            tools:text="타코앤제이형" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

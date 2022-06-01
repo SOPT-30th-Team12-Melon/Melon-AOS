@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import org.sopt.jointseminar.melon.databinding.FragmentAlbumBinding
 import org.sopt.jointseminar.melon.presentation.posting.PostingActivity
+import org.sopt.jointseminar.melon.util.convertTimeZonToYMD
 import java.text.DecimalFormat
 
 class AlbumFragment : Fragment() {
@@ -19,6 +20,7 @@ class AlbumFragment : Fragment() {
     private val binding get() = _binding!!
     private val albumViewModel: AlbumViewModel by viewModels()
     private val albumCommentAdapter = AlbumCommentListAdapter()
+    private val albumSongListAdapter = AlbumSongListAdapter()
     private val decimalFormat = DecimalFormat("##0.0")
 
     override fun onCreateView(
@@ -44,6 +46,8 @@ class AlbumFragment : Fragment() {
             addItemDecoration(dividerItemDecoration)
         }
 
+        binding.rvSongList.adapter = albumSongListAdapter
+
         binding.btnBack.setOnClickListener {
             parentFragmentManager.beginTransaction().remove(this).commit()
         }
@@ -58,11 +62,17 @@ class AlbumFragment : Fragment() {
             albumCommentAdapter.submitList(it.toMutableList())
         }
 
-        albumViewModel.albumInfo.observe(viewLifecycleOwner) {
-            binding.tvScore.text = decimalFormat.format(it.score)
-            // FIXME 이미지가 load되지 않는 문제가 있음
-            Glide.with(binding.ivArtistImg.context).load(it.artistImage).into(binding.ivArtistImg)
-            Glide.with(binding.ivAlbum.context).load(it.coverImage).into(binding.ivAlbum)
+        albumViewModel.albumInfo.observe(viewLifecycleOwner) { albumInfo ->
+            binding.tvScore.text = decimalFormat.format(albumInfo.score)
+            binding.tvReleaseDate.text = convertTimeZonToYMD(albumInfo.releaseDate)
+            binding.tvReleaseDateContent.text = convertTimeZonToYMD(albumInfo.releaseDate)
+
+            Glide.with(binding.ivArtistImg.context).load(albumInfo.artistImage)
+                .into(binding.ivArtistImg)
+            Glide.with(binding.ivAlbum.context).load(albumInfo.coverImage).into(binding.ivAlbum)
+
+            albumSongListAdapter.setArtist(albumInfo.singerName)
+            albumSongListAdapter.submitList(albumInfo.songList.toMutableList())
         }
     }
 

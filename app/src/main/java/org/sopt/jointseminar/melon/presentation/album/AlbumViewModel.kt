@@ -41,7 +41,6 @@ class AlbumViewModel : ViewModel() {
         )
     }
 
-
     /** 글쓰기 화면에서 댓글 등록 후 해당 댓글을 _commentList에 추가 */
     fun addComment(comment: AlbumCommentInfo) {
         _commentList.value?.add(comment)

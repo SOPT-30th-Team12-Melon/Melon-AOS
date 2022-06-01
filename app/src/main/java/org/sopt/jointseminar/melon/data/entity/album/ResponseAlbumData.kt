@@ -26,6 +26,8 @@ data class ResponseAlbumData(
         val artistImage: String,
         @SerializedName("likeNumber")
         val likeNum: Int,
+        @SerializedName("albumSing")
+        val songList: List<AlbumSongInfo>,
         @SerializedName("albumType")
         val type: String,
         @SerializedName("albumGenre")
@@ -36,7 +38,7 @@ data class ResponseAlbumData(
         val description: String,
         @SerializedName("albumCompany")
         val publisher: String,
-        @SerializedName("Company")
+        @SerializedName("company")
         val agency: String,
     ) {
         fun convertToAlbumInfo(album: Data): AlbumInfo {
@@ -49,6 +51,7 @@ data class ResponseAlbumData(
                 album.singerName,
                 album.artistImage,
                 album.likeNum,
+                album.songList,
                 album.type,
                 album.genre,
                 album.time,

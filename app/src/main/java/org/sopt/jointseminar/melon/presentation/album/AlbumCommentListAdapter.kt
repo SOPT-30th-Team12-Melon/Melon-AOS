@@ -14,8 +14,8 @@ class AlbumCommentListAdapter :
     class CommentViewHolder(private val binding: ItemCommentBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(comment: AlbumCommentInfo) {
-            binding.comment = comment
-            Glide.with(binding.ivUserImg.context).load(comment.authorImage).into(binding.ivUserImg)
+            binding.commentData = comment
+            Glide.with(binding.ivUserImg.context).load(comment.author.image).into(binding.ivUserImg)
         }
     }
 
