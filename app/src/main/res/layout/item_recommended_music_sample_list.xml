@@ -7,7 +7,7 @@
 
         <variable
             name="favouriteData"
-            type="org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavourite" />
+            type="org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavourite.Data" />
     </data>
 
 
@@ -58,6 +58,7 @@
                 android:layout_marginTop="18dp"
                 android:background="@drawable/rectangle_radius_6"
                 android:scaleType="centerCrop"
+                tools:background="@drawable/img_albumcover"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +75,6 @@
                 android:gravity="center"
                 android:maxEms="9"
                 android:maxLines="1"
-                android:text="@{favouriteData.hashTag}"
                 android:textColor="@color/gray_300"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/tv_content"
@@ -93,7 +93,7 @@
                 android:gravity="center"
                 android:maxEms="8"
                 android:maxLines="1"
-                android:text="@{favouriteData.content}"
+                android:text="@{favouriteData.body}"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
