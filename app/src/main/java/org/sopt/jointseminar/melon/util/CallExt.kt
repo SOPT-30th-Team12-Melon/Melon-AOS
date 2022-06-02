@@ -6,15 +6,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 object CallExt {
-    fun <ResponseType>Call<ResponseType>.enqueueUtil(
-        onSuccess : (ResponseType) -> Unit,
-        onError : ((stateCode : Int) -> Unit)? = null
-    ){
-        this.enqueue(object : Callback<ResponseType>{
+    fun <ResponseType> Call<ResponseType>.enqueueUtil(
+        onSuccess: (ResponseType) -> Unit,
+        onError: ((stateCode: Int) -> Unit)? = null
+    ) {
+        this.enqueue(object : Callback<ResponseType> {
             override fun onResponse(call: Call<ResponseType>, response: Response<ResponseType>) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     onSuccess.invoke(response.body() ?: return)
-                }else{
+                } else {
                     onError?.invoke(response.code())
                 }
             }

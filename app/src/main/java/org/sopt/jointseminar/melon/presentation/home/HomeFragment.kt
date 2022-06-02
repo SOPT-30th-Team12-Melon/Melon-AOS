@@ -42,14 +42,13 @@ class HomeFragment : Fragment() {
     private fun initFavouriteMusicNetWork() {
         val call: Call<ResponseHomeFavourite> =
             ServiceCreator.service.getFavoriteMusic()
-
         call.enqueueUtil(
             onSuccess = {
                 initHomeFavoriteAdapter()
                 homeFavouriteAdapter.submitList(it.data.toMutableList())
             },
             onError = {
-                requireContext().showToast("서버 연결에 실패하셨습니다.")
+                requireContext().showToast("추천음악 서버 연결에 실패하셨습니다.")
             }
         )
     }
@@ -64,7 +63,7 @@ class HomeFragment : Fragment() {
                 homeRecentAdapter.submitList(it.data.toMutableList())
             },
             onError = {
-                requireContext().showToast("서버 연결에 실패하셨습니다.")
+                requireContext().showToast("최신음악 서버 연결에 실패하셨습니다.")
             }
         )
     }

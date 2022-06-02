@@ -18,7 +18,8 @@ class HomeFavouriteAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: ResponseHomeFavourite.Data) {
             binding.favouriteData = data
-            binding.tvHashTag = data.hashtag.joinToString("")
+            val s2 = data.hashtag.joinToString(prefix = "#", separator = " #", postfix = "")
+            binding.tvHashTag.text = s2
             Glide.with(binding.ivMusic.context)
                 .load(data.image)
                 .into(binding.ivMusic)
@@ -39,20 +40,21 @@ class HomeFavouriteAdapter :
     }
 
     companion object {
-        private val FavouriteComparator = object : DiffUtil.ItemCallback<ResponseHomeFavourite.Data>() {
-            override fun areItemsTheSame(
-                oldItem: ResponseHomeFavourite.Data,
-                newItem: ResponseHomeFavourite.Data
-            ): Boolean {
-                return oldItem.title == newItem.title
-            }
+        private val FavouriteComparator =
+            object : DiffUtil.ItemCallback<ResponseHomeFavourite.Data>() {
+                override fun areItemsTheSame(
+                    oldItem: ResponseHomeFavourite.Data,
+                    newItem: ResponseHomeFavourite.Data
+                ): Boolean {
+                    return oldItem.title == newItem.title
+                }
 
-            override fun areContentsTheSame(
-                oldItem: ResponseHomeFavourite.Data,
-                newItem: ResponseHomeFavourite.Data
-            ): Boolean {
-                return oldItem == newItem
+                override fun areContentsTheSame(
+                    oldItem: ResponseHomeFavourite.Data,
+                    newItem: ResponseHomeFavourite.Data
+                ): Boolean {
+                    return oldItem == newItem
+                }
             }
-        }
     }
 }

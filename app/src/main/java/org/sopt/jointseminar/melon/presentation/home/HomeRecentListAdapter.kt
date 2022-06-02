@@ -10,13 +10,13 @@ import org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusic
 import org.sopt.jointseminar.melon.databinding.ItemRecentMusicSampleListBinding
 
 class HomeRecentListAdapter(private val onAlbumClick: () -> Unit) :
-    ListAdapter<ResponseRecentMusic, HomeRecentListAdapter.RecentMusicViewHolder>(
+    ListAdapter<ResponseRecentMusic.Data, HomeRecentListAdapter.RecentMusicViewHolder>(
         RecentMusicComparator
     ) {
 
     class RecentMusicViewHolder(private val binding: ItemRecentMusicSampleListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: ResponseRecentMusic, onAlbumClick: () -> Unit) {
+        fun onBind(data: ResponseRecentMusic.Data, onAlbumClick: () -> Unit) {
             binding.recentMusicData = data
             Glide.with(binding.ivAlbum.context)
                 .load(data.image)
@@ -41,17 +41,17 @@ class HomeRecentListAdapter(private val onAlbumClick: () -> Unit) :
     }
 
     companion object {
-        private val RecentMusicComparator = object : DiffUtil.ItemCallback<ResponseRecentMusic>() {
+        private val RecentMusicComparator = object : DiffUtil.ItemCallback<ResponseRecentMusic.Data>() {
             override fun areItemsTheSame(
-                oldItem: ResponseRecentMusic,
-                newItem: ResponseRecentMusic
+                oldItem: ResponseRecentMusic.Data,
+                newItem: ResponseRecentMusic.Data
             ): Boolean {
-                return oldItem.title == newItem.title
+                return oldItem.albumId == newItem.albumId
             }
 
             override fun areContentsTheSame(
-                oldItem: ResponseRecentMusic,
-                newItem: ResponseRecentMusic
+                oldItem: ResponseRecentMusic.Data,
+                newItem: ResponseRecentMusic.Data
             ): Boolean {
                 return oldItem == newItem
             }

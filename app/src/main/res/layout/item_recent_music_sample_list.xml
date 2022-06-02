@@ -7,7 +7,7 @@
 
         <variable
             name="recentMusicData"
-            type="org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusic" />
+            type="org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusic.Data" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
