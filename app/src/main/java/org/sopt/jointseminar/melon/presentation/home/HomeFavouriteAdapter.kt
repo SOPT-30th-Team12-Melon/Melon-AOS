@@ -18,7 +18,7 @@ class HomeFavouriteAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: ResponseHomeFavourite.Data) {
             binding.favouriteData = data
-            val s2 = data.hashtag.joinToString(prefix = "#", separator = " #", postfix = "")
+            val s2 = data.hashtag.joinToString(prefix = "#", separator = " #")
             binding.tvHashTag.text = s2
             Glide.with(binding.ivMusic.context)
                 .load(data.image)
