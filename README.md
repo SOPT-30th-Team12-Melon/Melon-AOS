@@ -5,6 +5,11 @@
 
 <br>
 
+## Video
+<img width="270" src="https://user-images.githubusercontent.com/48701368/171873864-f4d5c8a5-9d2b-44ed-8d37-528c77ad2449.gif">
+
+<br>
+
 ## Contributors
 
 | [@briandr97](https://github.com/briandr97) | [@murjune](https://github.com/murjune) | [@youngjinc](https://github.com/youngjinc) |
