@@ -11,26 +11,17 @@ data class ResponseAlbumCommentData(
     data class Data(
         @SerializedName("albumId")
         val id: String,
-        val author: String,
-        @SerializedName("image")
-        val authorImage: String,
-        val createdAt: String,
+        @SerializedName("userId")
+        val authorInfo: AlbumCommentAuthorInfo,
         @SerializedName("commentBody")
         val comment: String,
-        val likeNum: Int,
-        val hateNum: Int,
-        @SerializedName("commentNum")
-        val replyNum: Int,
     ) {
         fun convertToAlbumCommentInfo(comment: Data): AlbumCommentInfo {
-            return AlbumCommentInfo(comment.id,
-                comment.author,
-                comment.authorImage,
-                comment.createdAt,
+            return AlbumCommentInfo(
+                comment.id,
+                comment.authorInfo,
                 comment.comment,
-                comment.likeNum,
-                comment.hateNum,
-                comment.replyNum)
+            )
         }
     }
 }

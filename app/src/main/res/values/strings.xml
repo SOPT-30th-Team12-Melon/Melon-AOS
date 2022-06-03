@@ -7,8 +7,10 @@
     <string name="registration">등록</string>
     <string name="num_of_people">%d명</string>
     <string name="format_time">%d시간 전</string>
+    <string name="format_num_of_song">%d곡</string>
     <string name="format_comment">댓글 %d</string>
     <string name="format_reply">답글 %d</string>
+    <string name="format_hashtag">#%s</string>
 
     <!-- Navigation -->
     <string name="tab_home">홈</string>
