@@ -36,12 +36,12 @@
 ┃ ┃ ┃ ┃ ┣ 📜 ResponseAlbumCommentData.kt
 ┃ ┃ ┃ ┃ ┣ 📜 ResponseAlbumData.kt
 ┃ ┃ ┃ ┣ 📂 music
-┃ ┃ ┃ ┃ ┣ 📜 ResponseHomeFavorite.kt
-┃ ┃ ┃ ┃ ┣ 📜 ResponseRecentMusic.kt
+┃ ┃ ┃ ┃ ┣ 📜 ResponseHomeFavoriteData.kt
+┃ ┃ ┃ ┃ ┣ 📜 ResponseRecentMusicData.kt
+┃ ┃ ┃ ┃ ┣ 📜 TopMusicInfo.kt
 ┃ ┃ ┃ ┣ 📂 posting
 ┃ ┃ ┃ ┃ ┣ 📜 RequestPosingData.kt
 ┃ ┃ ┃ ┃ ┣ 📜 ResponsePosingData.kt
-┃ ┃ ┃ ┃ ┣ 📜 TopMusicInfo.kt
 ┃ ┃ ┃ ┣ 📜 Rank.kt
 ┣ 📂 presentation
 ┃ ┃ ┣ 📂 album
@@ -50,7 +50,6 @@
 ┃ ┃ ┃ ┣ 📜 AlbumSongListAdapter.kt
 ┃ ┃ ┃ ┣ 📜 AlbumViewModel.kt
 ┃ ┃ ┣ 📂 home
-┃ ┃ ┃ ┣ 📜 HomeDecorationHorizontal.kt
 ┃ ┃ ┃ ┣ 📜 HomeFavoriteAdapter.kt
 ┃ ┃ ┃ ┣ 📜 HomeFragment.kt
 ┃ ┃ ┃ ┣ 📜 HomeRecentListAdapter.kt
@@ -65,6 +64,7 @@
 ┃ ┃ ┣ 📜 StorageFragment.kt
 ┣ 📂 util
 ┃ ┣ 📜 CallExt.kt
+┃ ┣ 📜 CustomDecoration.kt
 ┃ ┣ 📜 DateFormatUtil.kt
 ┃ ┣ 📜 ToastUtil.kt
 ```
