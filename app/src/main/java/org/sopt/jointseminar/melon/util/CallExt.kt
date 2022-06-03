@@ -14,8 +14,10 @@ object CallExt {
             override fun onResponse(call: Call<ResponseType>, response: Response<ResponseType>) {
                 if (response.isSuccessful) {
                     onSuccess.invoke(response.body() ?: return)
+                    Log.d("networktest", "success")
                 } else {
                     onError?.invoke(response.code())
+                    Log.d("networktest", "fail")
                 }
             }
 

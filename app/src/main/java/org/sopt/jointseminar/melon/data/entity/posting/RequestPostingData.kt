@@ -1,5 +1,6 @@
 package org.sopt.jointseminar.melon.data.entity.posting
 
 data class RequestPostingData(
-    val review : String
+    val userId: String,
+    val commentBody: String
 )
