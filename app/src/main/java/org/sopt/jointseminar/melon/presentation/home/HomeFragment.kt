@@ -10,8 +10,8 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import org.sopt.jointseminar.melon.R
 import org.sopt.jointseminar.melon.data.api.ServiceCreator
-import org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavourite
-import org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusic
+import org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavouriteData
+import org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusicData
 import org.sopt.jointseminar.melon.databinding.FragmentHomeBinding
 import org.sopt.jointseminar.melon.presentation.album.AlbumFragment
 import org.sopt.jointseminar.melon.util.CallExt.enqueueUtil
@@ -42,13 +42,13 @@ class HomeFragment : Fragment() {
         initHomeFavoriteAdapter()
         homeFavouriteAdapter.submitList(
             listOf(
-                ResponseHomeFavourite.Data(
+                ResponseHomeFavouriteData.Data(
                     title = "이번주 인기 플레이리스트",
                     image = "https://is5-ssl.mzstatic.com/image/thumb/Music125/v4/35/9f/83/359f83b3-1423-3153-1641-98e948b7fc65/cover_-_EDAM_5_LILAC.jpg/600x600bb.jpg",
                     body = "POP갬성 폭발 분위기 끝장난다 그죠?",
                     hashtag = listOf("분위기", "밥송")
                 ),
-                ResponseHomeFavourite.Data(
+                ResponseHomeFavouriteData.Data(
                     title = "오늘의 감상 테마",
                     image = "https://is5-ssl.mzstatic.com/image/thumb/Music125/v4/35/9f/83/359f83b3-1423-3153-1641-98e948b7fc65/cover_-_EDAM_5_LILAC.jpg/600x600bb.jpg",
                     body = "청춘 드라마 주인공처럼",
@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecentMusicNetWort() {
-        val call: Call<ResponseRecentMusic> =
+        val call: Call<ResponseRecentMusicData> =
             ServiceCreator.service.getRecentMusic("all")
 
         call.enqueueUtil(

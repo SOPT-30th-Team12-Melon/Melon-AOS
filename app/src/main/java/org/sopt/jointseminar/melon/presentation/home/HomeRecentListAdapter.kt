@@ -6,17 +6,17 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusic
+import org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusicData
 import org.sopt.jointseminar.melon.databinding.ItemRecentMusicSampleListBinding
 
 class HomeRecentListAdapter(private val onAlbumClick: () -> Unit) :
-    ListAdapter<ResponseRecentMusic.Data, HomeRecentListAdapter.RecentMusicViewHolder>(
+    ListAdapter<ResponseRecentMusicData.Data, HomeRecentListAdapter.RecentMusicViewHolder>(
         RecentMusicComparator
     ) {
 
     class RecentMusicViewHolder(private val binding: ItemRecentMusicSampleListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: ResponseRecentMusic.Data, onAlbumClick: () -> Unit) {
+        fun onBind(data: ResponseRecentMusicData.Data, onAlbumClick: () -> Unit) {
             binding.recentMusicData = data
             Glide.with(binding.ivAlbum.context)
                 .load(data.image)
@@ -41,17 +41,17 @@ class HomeRecentListAdapter(private val onAlbumClick: () -> Unit) :
     }
 
     companion object {
-        private val RecentMusicComparator = object : DiffUtil.ItemCallback<ResponseRecentMusic.Data>() {
+        private val RecentMusicComparator = object : DiffUtil.ItemCallback<ResponseRecentMusicData.Data>() {
             override fun areItemsTheSame(
-                oldItem: ResponseRecentMusic.Data,
-                newItem: ResponseRecentMusic.Data
+                oldItem: ResponseRecentMusicData.Data,
+                newItem: ResponseRecentMusicData.Data
             ): Boolean {
                 return oldItem.albumId == newItem.albumId
             }
 
             override fun areContentsTheSame(
-                oldItem: ResponseRecentMusic.Data,
-                newItem: ResponseRecentMusic.Data
+                oldItem: ResponseRecentMusicData.Data,
+                newItem: ResponseRecentMusicData.Data
             ): Boolean {
                 return oldItem == newItem
             }

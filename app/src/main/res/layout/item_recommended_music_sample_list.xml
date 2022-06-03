@@ -7,7 +7,7 @@
 
         <variable
             name="favouriteData"
-            type="org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavourite.Data" />
+            type="org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavouriteData.Data" />
     </data>
 
 

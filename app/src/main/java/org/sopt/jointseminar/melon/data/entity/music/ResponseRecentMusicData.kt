@@ -1,6 +1,6 @@
 package org.sopt.jointseminar.melon.data.entity.music
 
-data class ResponseRecentMusic(
+data class ResponseRecentMusicData(
     val status: Int,
     val success: Boolean,
     val message: String,

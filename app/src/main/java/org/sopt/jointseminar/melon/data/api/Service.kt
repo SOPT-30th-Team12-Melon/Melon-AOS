@@ -2,8 +2,7 @@ package org.sopt.jointseminar.melon.data.api
 
 import org.sopt.jointseminar.melon.data.entity.album.ResponseAlbumCommentData
 import org.sopt.jointseminar.melon.data.entity.album.ResponseAlbumData
-import org.sopt.jointseminar.melon.data.entity.music.ResponseHomeFavourite
-import org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusic
+import org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusicData
 import org.sopt.jointseminar.melon.data.entity.posting.RequestPostingData
 import org.sopt.jointseminar.melon.data.entity.posting.ResponsePostingData
 import retrofit2.Call
@@ -29,5 +28,5 @@ interface Service {
     @GET("album/recent?type=")
     fun getRecentMusic(
         @Query("type") type: String
-    ): Call<ResponseRecentMusic>
+    ): Call<ResponseRecentMusicData>
 }
