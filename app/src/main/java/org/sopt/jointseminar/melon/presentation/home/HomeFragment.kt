@@ -15,6 +15,7 @@ import org.sopt.jointseminar.melon.data.entity.music.ResponseRecentMusicData
 import org.sopt.jointseminar.melon.databinding.FragmentHomeBinding
 import org.sopt.jointseminar.melon.presentation.album.AlbumFragment
 import org.sopt.jointseminar.melon.util.CallExt.enqueueUtil
+import org.sopt.jointseminar.melon.util.CustomDecoration
 import org.sopt.jointseminar.melon.util.showToast
 import retrofit2.Call
 
@@ -77,7 +78,7 @@ class HomeFragment : Fragment() {
         homeFavouriteAdapter = HomeFavouriteAdapter()
         binding.rvRepository.apply {
             adapter = homeFavouriteAdapter
-            addItemDecoration(HomeDecorationHorizontal())
+            addItemDecoration(CustomDecoration())
         }
     }
 
@@ -85,7 +86,7 @@ class HomeFragment : Fragment() {
         homeRecentAdapter = HomeRecentListAdapter { onRecentClick() }
         binding.rvRecentMusic.apply {
             adapter = homeRecentAdapter
-            addItemDecoration(HomeDecorationHorizontal())
+            addItemDecoration(CustomDecoration())
         }
     }
 

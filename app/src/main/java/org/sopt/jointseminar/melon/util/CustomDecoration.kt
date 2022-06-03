@@ -1,10 +1,10 @@
-package org.sopt.jointseminar.melon.presentation.home
+package org.sopt.jointseminar.melon.util
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class HomeDecorationHorizontal : RecyclerView.ItemDecoration() {
+class CustomDecoration : RecyclerView.ItemDecoration() {
     override fun getItemOffsets(
         outRect: Rect,
         view: View,
