@@ -30,7 +30,4 @@ interface Service {
     fun getRecentMusic(
         @Query("type") type: String
     ): Call<ResponseRecentMusic>
-
-    @GET("/playlist/main")
-    fun getFavoriteMusic(): Call<ResponseHomeFavourite>
 }

@@ -33,23 +33,28 @@ class HomeFragment : Fragment() {
         _binding?.viewModel = homeViewModel
         _binding?.lifecycleOwner = this@HomeFragment
 
-        initFavouriteMusicNetWork()
+        initFavouriteMusicData()
         initRecentMusicNetWort()
-        initRecentAdapter()
         return binding.root
     }
 
-    private fun initFavouriteMusicNetWork() {
-        val call: Call<ResponseHomeFavourite> =
-            ServiceCreator.service.getFavoriteMusic()
-        call.enqueueUtil(
-            onSuccess = {
-                initHomeFavoriteAdapter()
-                homeFavouriteAdapter.submitList(it.data.toMutableList())
-            },
-            onError = {
-                requireContext().showToast("추천음악 서버 연결에 실패하셨습니다.")
-            }
+    private fun initFavouriteMusicData() {
+        initHomeFavoriteAdapter()
+        homeFavouriteAdapter.submitList(
+            listOf(
+                ResponseHomeFavourite.Data(
+                    title = "이번주 인기 플레이리스트",
+                    image = "https://image.url.com",
+                    body = "POP갬성 폭발 분위기 끝장난다 그죠?",
+                    hashtag = listOf("분위기", "밥송")
+                ),
+                ResponseHomeFavourite.Data(
+                    title = "오늘의 감상 테마",
+                    image = "https://image.url.com",
+                    body = "청춘 드라마 주인공처럼",
+                    hashtag = listOf("기분전환", "기분안좋아지기")
+                ),
+            )
         )
     }
 
