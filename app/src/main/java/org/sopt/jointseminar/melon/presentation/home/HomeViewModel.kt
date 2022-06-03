@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.sopt.jointseminar.melon.R
 import org.sopt.jointseminar.melon.data.entity.Rank
-import org.sopt.jointseminar.melon.data.entity.posting.TopMusicInfo
+import org.sopt.jointseminar.melon.data.entity.music.TopMusicInfo
 
 class HomeViewModel : ViewModel() {
     private var _topMusicList = MutableLiveData<MutableList<TopMusicInfo>>()

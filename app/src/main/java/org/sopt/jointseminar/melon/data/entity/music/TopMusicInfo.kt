@@ -1,4 +1,4 @@
-package org.sopt.jointseminar.melon.data.entity.posting
+package org.sopt.jointseminar.melon.data.entity.music
 
 import org.sopt.jointseminar.melon.data.entity.Rank
 
