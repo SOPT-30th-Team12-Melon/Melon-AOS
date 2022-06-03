@@ -19,6 +19,7 @@ class PostingActivity : AppCompatActivity() {
         initViewModel()
         initView()
         observeReview()
+        clickRegistry()
     }
 
     private fun initViewModel() {
@@ -42,6 +43,13 @@ class PostingActivity : AppCompatActivity() {
                 binding.tvRegistration.isClickable = false
                 binding.tvRegistration.setTextColor(ContextCompat.getColor(this, R.color.gray_500))
             }
+        }
+    }
+
+    private fun clickRegistry(){
+        binding.tvRegistration.setOnClickListener{
+            postingViewModel.initNetwork()
+            finish()
         }
     }
 }
