@@ -44,13 +44,13 @@ class HomeFragment : Fragment() {
             listOf(
                 ResponseHomeFavourite.Data(
                     title = "이번주 인기 플레이리스트",
-                    image = "https://image.url.com",
+                    image = "https://is5-ssl.mzstatic.com/image/thumb/Music125/v4/35/9f/83/359f83b3-1423-3153-1641-98e948b7fc65/cover_-_EDAM_5_LILAC.jpg/600x600bb.jpg",
                     body = "POP갬성 폭발 분위기 끝장난다 그죠?",
                     hashtag = listOf("분위기", "밥송")
                 ),
                 ResponseHomeFavourite.Data(
                     title = "오늘의 감상 테마",
-                    image = "https://image.url.com",
+                    image = "https://is5-ssl.mzstatic.com/image/thumb/Music125/v4/35/9f/83/359f83b3-1423-3153-1641-98e948b7fc65/cover_-_EDAM_5_LILAC.jpg/600x600bb.jpg",
                     body = "청춘 드라마 주인공처럼",
                     hashtag = listOf("기분전환", "기분안좋아지기")
                 ),
